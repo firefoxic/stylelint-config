@@ -1,7 +1,7 @@
 {
 	"name": "@firefoxic/stylelint-config",
 	"description": "Shared config for stylelint by firefoxic.",
-	"version": "0.0.1",
+	"version": "1.0.0",
 	"license": "MIT",
 	"author": {
 		"name": "Sergey Artemov",
