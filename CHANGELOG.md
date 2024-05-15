@@ -7,6 +7,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and 
 
 ## [Unreleased]
 
+### Fixed
+
+- Zero length value no longer requires no units in all cases.
+
 ## [1.0.0] — 2024–05–07
 
 ### Added

@@ -51,17 +51,6 @@ export default {
 		"keyframe-block-no-duplicate-selectors": true,
 		"keyframe-declaration-no-important": true,
 		"keyframe-selector-notation": `percentage-unless-within-keyword-only-block`,
-		"length-zero-no-unit": [
-			true,
-			{
-				ignore: [`custom-properties`],
-				ignoreFunctions: [
-					`calc`,
-					`var`,
-					`/^--/`,
-				],
-			},
-		],
 		"max-nesting-depth": [
 			2,
 			{
