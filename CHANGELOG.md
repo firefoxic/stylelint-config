@@ -7,6 +7,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and 
 
 ## [Unreleased]
 
+## [2.0.0] — 2024–05–17
+
 ### Changed
 
 - The custom media queries should now be defined within the same source.
@@ -22,5 +24,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and 
 
 - Base config for `stylelint`.
 
-[Unreleased]: https://github.com/firefoxic/stylelint-config/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/firefoxic/stylelint-config/compare/v2.0.0...HEAD
+[2.0.0]: https://github.com/firefoxic/stylelint-config/compare/v1.0.0...v2.0.0
 [1.0.0]: https://github.com/firefoxic/stylelint-config/releases/tag/v1.0.0
