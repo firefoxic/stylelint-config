@@ -71,6 +71,7 @@ export default {
 		"no-invalid-double-slash-comments": true,
 		"no-invalid-position-at-import-rule": true,
 		"no-irregular-whitespace": true,
+		"no-unknown-custom-media": true,
 		"number-max-precision": [
 			3,
 			{

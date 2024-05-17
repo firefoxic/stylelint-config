@@ -7,6 +7,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and 
 
 ## [Unreleased]
 
+### Changed
+
+- The custom media queries should now be defined within the same source.
+
 ### Fixed
 
 - Zero length value no longer requires no units in all cases.
