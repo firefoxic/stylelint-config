@@ -156,6 +156,13 @@ export default {
 		"@stylistic/media-query-list-comma-newline-before": `never-multi-line`,
 		"@stylistic/media-query-list-comma-space-after": `always-single-line`,
 		"@stylistic/media-query-list-comma-space-before": `never-single-line`,
+		"@stylistic/named-grid-areas-alignment": [
+			true,
+			{
+				gap: 2,
+				alignQuotes: true,
+			},
+		],
 		"@stylistic/no-eol-whitespace": true,
 		"@stylistic/no-extra-semicolons": true,
 		"@stylistic/no-missing-end-of-source-newline": true,
