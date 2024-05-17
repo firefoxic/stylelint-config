@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and 
 ### Changed
 
 - The custom media queries should now be defined within the same source.
+- The grid area names in the `grid-template-areas` property values should now be aligned.
 
 ### Fixed
 
