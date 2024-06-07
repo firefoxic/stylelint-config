@@ -7,6 +7,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and 
 
 ## [Unreleased]
 
+### Changed
+
+- The legacy single-value syntax for the `display` property is now disallowed.
+
 ## [2.0.0] — 2024–05–17
 
 ### Changed
