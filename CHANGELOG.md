@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and 
 ### Changed
 
 - The legacy single-value syntax for the `display` property is now disallowed.
+- Physical properties, values and units are now disallowed. Use logical ones instead.
 
 ## [2.0.0] — 2024–05–17
 

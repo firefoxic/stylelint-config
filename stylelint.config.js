@@ -1,6 +1,9 @@
 /** @type {import('stylelint').Config} */
 export default {
-	plugins: [`@stylistic/stylelint-plugin`],
+	plugins: [
+		`@stylistic/stylelint-plugin`,
+		`stylelint-plugin-logical-css`,
+	],
 	rules: {
 		"annotation-no-unknown": true,
 		"at-rule-empty-line-before": [
@@ -129,6 +132,9 @@ export default {
 		"unit-no-unknown": true,
 		"value-keyword-case": `lower`,
 		"value-no-vendor-prefix": true,
+
+		"plugin/use-logical-properties-and-values": true,
+		"plugin/use-logical-units": true,
 
 		"@stylistic/at-rule-name-case": `lower`,
 		"@stylistic/at-rule-name-space-after": `always`,

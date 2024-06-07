@@ -28,7 +28,8 @@
 		"stylelint": "^16.5.0"
 	},
 	"dependencies": {
-		"@stylistic/stylelint-plugin": "^2.1.2"
+		"@stylistic/stylelint-plugin": "^2.1.2",
+		"stylelint-plugin-logical-css": "^1.2.1"
 	},
 	"scripts": {
 		"prepare": "husky",

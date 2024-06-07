@@ -11,6 +11,9 @@ importers:
       '@stylistic/stylelint-plugin':
         specifier: ^2.1.2
         version: 2.1.2(stylelint@16.6.1)
+      stylelint-plugin-logical-css:
+        specifier: ^1.2.1
+        version: 1.2.1(stylelint@16.6.1)
     devDependencies:
       '@firefoxic/eslint-config':
         specifier: ^2.0.0
@@ -687,6 +690,12 @@ packages:
   style-search@0.1.0:
     resolution: {integrity: sha512-Dj1Okke1C3uKKwQcetra4jSuk0DqbzbYtXipzFlFMZtowbF1x7BKJwB9AayVMyFARvU8EDrZdcax4At/452cAg==}
 
+  stylelint-plugin-logical-css@1.2.1:
+    resolution: {integrity: sha512-56r1xGVZ/ExZT5SFJ7AhyZVUjOvRTCbLLl68PFTN1R55KU0SQEe22YyE53570cxeTf9plpvqckHAQBiUU714YQ==}
+    engines: {node: '>=18.12.0'}
+    peerDependencies:
+      stylelint: ^14.0.0 || ^15.0.0 || ^16.0.0
+
   stylelint@16.6.1:
     resolution: {integrity: sha512-yNgz2PqWLkhH2hw6X9AweV9YvoafbAD5ZsFdKN9BvSDVwGvPh+AUIrn7lYwy1S7IHmtFin75LLfX1m0D2tHu8Q==}
     engines: {node: '>=18.12.0'}
@@ -1351,6 +1360,10 @@ snapshots:
   strip-json-comments@3.1.1: {}
 
   style-search@0.1.0: {}
+
+  stylelint-plugin-logical-css@1.2.1(stylelint@16.6.1):
+    dependencies:
+      stylelint: 16.6.1
 
   stylelint@16.6.1:
     dependencies:
