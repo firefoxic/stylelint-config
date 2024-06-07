@@ -3,6 +3,7 @@ export default {
 	plugins: [
 		`@stylistic/stylelint-plugin`,
 		`stylelint-plugin-logical-css`,
+		`stylelint-gamut`,
 	],
 	rules: {
 		"annotation-no-unknown": true,
@@ -135,6 +136,8 @@ export default {
 
 		"plugin/use-logical-properties-and-values": true,
 		"plugin/use-logical-units": true,
+
+		"gamut/color-no-out-gamut-range": true,
 
 		"@stylistic/at-rule-name-case": `lower`,
 		"@stylistic/at-rule-name-space-after": `always`,

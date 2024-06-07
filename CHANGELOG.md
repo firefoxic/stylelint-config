@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and 
 
 - The legacy single-value syntax for the `display` property is now disallowed.
 - Physical properties, values and units are now disallowed. Use logical ones instead.
+- Out of gamut colors should now be wrapped in the proper media query.
 
 ## [2.0.0] — 2024–05–17
 
