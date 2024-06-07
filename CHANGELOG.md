@@ -7,6 +7,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and 
 
 ## [Unreleased]
 
+## [3.0.0] — 2024–06–07
+
 ### Changed
 
 - The legacy single-value syntax for the `display` property is now disallowed.
@@ -30,6 +32,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and 
 
 - Base config for `stylelint`.
 
-[Unreleased]: https://github.com/firefoxic/stylelint-config/compare/v2.0.0...HEAD
+[Unreleased]: https://github.com/firefoxic/stylelint-config/compare/v3.0.0...HEAD
+[3.0.0]: https://github.com/firefoxic/stylelint-config/compare/v2.0.0...v3.0.0
 [2.0.0]: https://github.com/firefoxic/stylelint-config/compare/v1.0.0...v2.0.0
 [1.0.0]: https://github.com/firefoxic/stylelint-config/releases/tag/v1.0.0
