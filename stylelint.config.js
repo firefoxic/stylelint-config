@@ -99,14 +99,6 @@ export default {
 		"no-invalid-position-at-import-rule": true,
 		"no-irregular-whitespace": true,
 		"no-unknown-custom-media": true,
-		"number-max-precision": [
-			3,
-			{
-				insideFunctions: {
-					"/^(oklch|oklab)$/": 9,
-				},
-			},
-		],
 		"property-no-unknown": [
 			true,
 			{
