@@ -7,6 +7,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and 
 
 ## [Unreleased]
 
+### Changed
+
+- The minimum required version of `stylelint` has been increased to `16.8.1`.
+
 ## [3.0.0] — 2024–06–07
 
 ### Changed

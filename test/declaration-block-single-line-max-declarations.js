@@ -21,6 +21,7 @@ testRule({
 			endLine: 6,
 			endColumn: 21,
 			rule,
+			url: undefined,
 			severity: `error`,
 			text: `Expected no more than 0 declarations (${rule})`,
 		},
