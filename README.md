@@ -39,4 +39,4 @@ export default {
 [npm-image]: https://badge.fury.io/js/@firefoxic%2Fstylelint-config.svg
 
 [test-url]: https://github.com/firefoxic/stylelint-config/actions
-[test-image]: https://github.com/firefoxic/stylelint-config/actions/workflows/test.yml/badge.svg?branch=main
+[test-image]: https://github.com/firefoxic/stylelint-config/actions/workflows/test.yaml/badge.svg?branch=main
