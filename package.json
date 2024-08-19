@@ -20,7 +20,7 @@
 	"files": [
 		"./stylelint.config.js"
 	],
-	"packageManager": "pnpm@9.7.0",
+	"packageManager": "pnpm@9.7.1",
 	"engines": {
 		"node": "^18.12 || >=20.9"
 	},
@@ -28,7 +28,7 @@
 		"stylelint": "^16.8.1"
 	},
 	"dependencies": {
-		"@stylistic/stylelint-plugin": "^3.0.0",
+		"@stylistic/stylelint-plugin": "^3.0.1",
 		"stylelint-gamut": "^1.3.4",
 		"stylelint-plugin-logical-css": "^1.2.1"
 	},
@@ -43,11 +43,11 @@
 		"postpublish": "git push --follow-tags"
 	},
 	"devDependencies": {
-		"@firefoxic/eslint-config": "^2.1.0",
+		"@firefoxic/eslint-config": "^3.0.0",
 		"@firefoxic/update-changelog": "^0.2.0",
 		"eslint": "^9.9.0",
 		"husky": "^9.1.4",
-		"stylelint": "^16.8.1"
+		"stylelint": "^16.8.2"
 	},
 	"keywords": [
 		"config",
