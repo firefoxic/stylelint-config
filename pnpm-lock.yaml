@@ -20,16 +20,13 @@ importers:
     devDependencies:
       '@firefoxic/eslint-config':
         specifier: ^3.0.0
-        version: 3.0.0(eslint@9.9.0)
+        version: 3.0.1(eslint@9.9.0)
       '@firefoxic/update-changelog':
         specifier: ^0.2.0
         version: 0.2.0
       eslint:
         specifier: ^9.9.0
         version: 9.9.0
-      husky:
-        specifier: ^9.1.4
-        version: 9.1.4
       stylelint:
         specifier: ^16.8.2
         version: 16.8.2
@@ -100,8 +97,8 @@ packages:
     resolution: {integrity: sha512-BsWiH1yFGjXXS2yvrf5LyuoSIIbPrGUWob917o+BTKuZ7qJdxX8aJLRxs1fS9n6r7vESrq1OUqb68dANcFXuQQ==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@firefoxic/eslint-config@3.0.0':
-    resolution: {integrity: sha512-lR1OFs1l0R14zJDPM1UkWBTSj5DzZ+8Uw8YLlUNyiyLR6qcKE3xtkFM/PemaYdjt5pGGQnXTkr+y9NHdaLJw8A==}
+  '@firefoxic/eslint-config@3.0.1':
+    resolution: {integrity: sha512-vjOwVzm2IfJnVNU9LeWKJQa6/De6G5lTJ6EKwD7eTGRkyECxTRZkIcDpULSDlsMxm18J8CvrafQ0ed4WhvmXXg==}
     engines: {node: ^18.12 || >=20.9}
     peerDependencies:
       eslint: ^9.9.0
@@ -440,11 +437,6 @@ packages:
   html-tags@3.3.1:
     resolution: {integrity: sha512-ztqyC3kLto0e9WbNp0aeP+M3kTt+nbaIveGmUxAtZa+8iFgKLUOD4YKM5j+f3QD89bra7UeumolZHKuOXnTmeQ==}
     engines: {node: '>=8'}
-
-  husky@9.1.4:
-    resolution: {integrity: sha512-bho94YyReb4JV7LYWRWxZ/xr6TtOTt8cMfmQ39MQYJ7f/YE268s3GdghGwi+y4zAeqewE5zYLvuhV0M0ijsDEA==}
-    engines: {node: '>=18'}
-    hasBin: true
 
   ignore@5.3.2:
     resolution: {integrity: sha512-hsBTNUqQTDwkWtcdYI2i06Y/nUBEsNEDJKjWdigLvegy8kDuJAS8uRlpkkcQpyEXL0Z/pjDy5HBmMjRCJ2gq+g==}
@@ -852,7 +844,7 @@ snapshots:
 
   '@eslint/object-schema@2.1.4': {}
 
-  '@firefoxic/eslint-config@3.0.0(eslint@9.9.0)':
+  '@firefoxic/eslint-config@3.0.1(eslint@9.9.0)':
     dependencies:
       '@eslint/js': 9.9.0
       '@stylistic/eslint-plugin-js': 2.6.4(eslint@9.9.0)
@@ -1191,8 +1183,6 @@ snapshots:
   has-flag@4.0.0: {}
 
   html-tags@3.3.1: {}
-
-  husky@9.1.4: {}
 
   ignore@5.3.2: {}
 
