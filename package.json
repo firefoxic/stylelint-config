@@ -20,20 +20,20 @@
 	"files": [
 		"./stylelint.config.js"
 	],
-	"packageManager": "pnpm@9.7.1",
+	"packageManager": "pnpm@9.12.3",
 	"engines": {
-		"node": "^18.12 || >=20.9"
+		"node": "^20.12 || >=22.11"
 	},
 	"peerDependencies": {
-		"stylelint": "^16.8.1"
+		"stylelint": "^16.10.0"
 	},
 	"dependencies": {
-		"@stylistic/stylelint-plugin": "^3.0.1",
+		"@stylistic/stylelint-plugin": "^3.1.1",
 		"stylelint-gamut": "^1.3.4",
 		"stylelint-plugin-logical-css": "^1.2.1"
 	},
 	"scripts": {
-		"prepare": "git config core.hooksPath .git-hooks || echo 'Not in a git repo'",
+		"prepare": "git config core.hooksPath .git-hooks || true",
 		"lint": "eslint",
 		"pretest": "pnpm lint",
 		"test": "node --test",
@@ -43,10 +43,10 @@
 		"postpublish": "git push --follow-tags"
 	},
 	"devDependencies": {
-		"@firefoxic/eslint-config": "^3.0.0",
-		"@firefoxic/update-changelog": "^0.2.0",
-		"eslint": "^9.9.0",
-		"stylelint": "^16.8.2"
+		"@firefoxic/eslint-config": "^4.0.0",
+		"@firefoxic/update-changelog": "^0.2.1",
+		"eslint": "^9.13.0",
+		"stylelint": "^16.10.0"
 	},
 	"keywords": [
 		"config",
