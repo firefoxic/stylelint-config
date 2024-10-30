@@ -7,6 +7,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and 
 
 ## [Unreleased]
 
+## [5.0.0] — 2024–10–30
+
 ### Changed
 
 - The minimum required `stylelint` version has been increased to `16.10.0`.
@@ -51,7 +53,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and 
 
 - Base config for `stylelint`.
 
-[Unreleased]: https://github.com/firefoxic/stylelint-config/compare/v4.0.0...HEAD
+[Unreleased]: https://github.com/firefoxic/stylelint-config/compare/v5.0.0...HEAD
+[5.0.0]: https://github.com/firefoxic/stylelint-config/compare/v4.0.0...v5.0.0
 [4.0.0]: https://github.com/firefoxic/stylelint-config/compare/v3.0.0...v4.0.0
 [3.0.0]: https://github.com/firefoxic/stylelint-config/compare/v2.0.0...v3.0.0
 [2.0.0]: https://github.com/firefoxic/stylelint-config/compare/v1.0.0...v2.0.0
