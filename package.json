@@ -32,18 +32,11 @@
 		"stylelint-plugin-logical-css": "^1.2.1"
 	},
 	"scripts": {
-		"prepare": "git config core.hooksPath .git-hooks || true",
-		"lint": "eslint",
-		"pretest": "pnpm lint",
-		"test": "node --test",
-		"preversion": "pnpm test",
-		"version": "update-changelog",
-		"postversion": "pnpm publish --provenance --access public --no-git-checks",
-		"postpublish": "git push --follow-tags"
+		"help": "make help",
+		"eslint": "eslint"
 	},
 	"devDependencies": {
 		"@firefoxic/eslint-config": "^4.0.0",
-		"@firefoxic/update-changelog": "^0.2.1",
 		"eslint": "^9.13.0",
 		"stylelint": "^16.10.0"
 	},

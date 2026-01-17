@@ -21,9 +21,6 @@ importers:
       '@firefoxic/eslint-config':
         specifier: ^4.0.0
         version: 4.0.0(eslint@9.13.0)
-      '@firefoxic/update-changelog':
-        specifier: ^0.2.1
-        version: 0.2.1
       eslint:
         specifier: ^9.13.0
         version: 9.13.0
@@ -106,11 +103,6 @@ packages:
     engines: {node: ^20.12 || >=22.11}
     peerDependencies:
       eslint: ^9.13.0
-
-  '@firefoxic/update-changelog@0.2.1':
-    resolution: {integrity: sha512-4l1curxXNjJwMJWjA8U6CpwPKMyPwmRcr6dClwXg3hIugWSPw+WgIg8yhKCMzpxFXvdygCqUsgf3JUpI8p0INw==}
-    engines: {node: ^18.12 || >=20.9}
-    hasBin: true
 
   '@humanfs/core@0.19.1':
     resolution: {integrity: sha512-5DyQ4+1JEUzejeK1JGICcideyfUbGixgS9jNgex5nqkW+cY7WZhxBigmieN5Qnw9ZosSNVC9KQKyb+GUaGyKUA==}
@@ -826,8 +818,6 @@ snapshots:
       eslint: 9.13.0
       eslint-plugin-prefer-let: 4.0.0
       globals: 15.11.0
-
-  '@firefoxic/update-changelog@0.2.1': {}
 
   '@humanfs/core@0.19.1': {}
 
