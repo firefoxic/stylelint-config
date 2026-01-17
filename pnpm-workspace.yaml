@@ -1,0 +1,13 @@
+engineStrict: true
+
+gitBranchLockfile: true
+
+mergeGitBranchLockfilesBranchPattern:
+  - main
+  - release*
+
+shellEmulator: true
+
+strictDepBuilds: true
+
+verifyDepsBeforeRun: install
