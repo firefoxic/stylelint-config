@@ -117,6 +117,7 @@ testRule({
 			endColumn: 17,
 			rule,
 			url: undefined,
+			fix: undefined,
 			severity: `error`,
 			text: `Unexpected unknown at-rule "@unknown-at-rule" (${rule})`,
 		},

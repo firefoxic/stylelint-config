@@ -25,6 +25,7 @@ testRule({
 			endColumn: 18,
 			rule,
 			url: undefined,
+			fix: undefined,
 			severity: `error`,
 			text: `Unexpected unknown annotation "!imprtant" (${rule})`,
 		},

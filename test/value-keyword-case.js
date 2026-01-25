@@ -24,6 +24,7 @@ testRule({
 			endColumn: 21,
 			rule,
 			url: undefined,
+			fix: undefined,
 			severity: `error`,
 			text: `Expected "currentColor" to be "currentcolor" (${rule})`,
 		},

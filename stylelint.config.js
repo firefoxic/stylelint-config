@@ -11,8 +11,8 @@ export default {
 			`always`,
 			{
 				except: [
-					`first-nested`,
 					`blockless-after-same-name-blockless`,
+					`first-nested`,
 				],
 				ignore: [`after-comment`],
 			},
@@ -52,15 +52,7 @@ export default {
 				`flow-root`,
 			],
 		},
-		"declaration-property-value-no-unknown": [
-			true,
-			// See: https://github.com/stylelint/stylelint/issues/7241
-			{
-				typesSyntax: {
-					color: `| oklch( [ <percentage> | <number> | none] [ <percentage> | <number> | none] [ <hue> | none] [ / [<alpha-value> | none] ]? )`,
-				},
-			},
-		],
+		"declaration-property-value-no-unknown": true,
 		"font-family-name-quotes": `always-where-required`,
 		"font-family-no-duplicate-names": [
 			true,

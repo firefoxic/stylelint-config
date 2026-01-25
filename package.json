@@ -21,24 +21,24 @@
 		"./stylelint.config.js"
 	],
 	"engines": {
-		"node": "^20.12 || >=22.11"
+		"node": ">=20.19"
 	},
 	"peerDependencies": {
-		"stylelint": "^16.10.0"
+		"stylelint": "^17.0.0"
 	},
 	"dependencies": {
-		"@stylistic/stylelint-plugin": "^3.1.1",
+		"@stylistic/stylelint-plugin": "^5.0.1",
 		"stylelint-gamut": "^1.3.4",
-		"stylelint-plugin-logical-css": "^1.2.1"
+		"stylelint-plugin-logical-css": "^1.2.3"
 	},
 	"scripts": {
 		"help": "make help",
 		"eslint": "eslint"
 	},
 	"devDependencies": {
-		"@firefoxic/eslint-config": "^4.0.0",
-		"eslint": "^9.13.0",
-		"stylelint": "^16.10.0"
+		"@firefoxic/eslint-config": "^6.0.1",
+		"eslint": "^9.39.2",
+		"stylelint": "^17.0.0"
 	},
 	"keywords": [
 		"config",

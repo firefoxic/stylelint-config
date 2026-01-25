@@ -19,6 +19,7 @@ testRule({
 			endColumn: 28,
 			rule,
 			url: undefined,
+			fix: undefined,
 			severity: `error`,
 			text: `Expected "url("invalid.scss")" to be ""invalid.scss"" (${rule})`,
 		},

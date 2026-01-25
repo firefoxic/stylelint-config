@@ -36,8 +36,9 @@ testRule({
 			endColumn: 29,
 			rule,
 			url: undefined,
+			fix: undefined,
 			severity: `error`,
-			text: `Unexpected duplicate name Arial (${rule})`,
+			text: `Unexpected duplicate font-family name Arial (${rule})`,
 		},
 		{
 			line: 19,
@@ -46,8 +47,9 @@ testRule({
 			endColumn: 45,
 			rule,
 			url: undefined,
+			fix: undefined,
 			severity: `error`,
-			text: `Unexpected duplicate name sans-serif (${rule})`,
+			text: `Unexpected duplicate font-family name sans-serif (${rule})`,
 		},
 	],
 })
