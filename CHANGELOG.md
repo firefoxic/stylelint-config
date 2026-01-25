@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and 
 	- `stylelint` version `17.0.0` or higher,
 	- `node.js` version `20.19.0` or higher.
 - Hex colors are no longer allowed.
+- Color function names with alpha are no longer allowed.
 
 ### Added
 

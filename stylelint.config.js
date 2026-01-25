@@ -20,6 +20,7 @@ export default {
 		"at-rule-no-unknown": true,
 		"at-rule-no-vendor-prefix": true,
 		"block-no-empty": true,
+		"color-function-alias-notation": `without-alpha`,
 		"color-function-notation": `modern`,
 		"color-named": `never`,
 		"color-no-hex": true,
