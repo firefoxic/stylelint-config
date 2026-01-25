@@ -19,12 +19,7 @@ export default {
 		],
 		"at-rule-no-unknown": true,
 		"at-rule-no-vendor-prefix": true,
-		"block-no-empty": [
-			true,
-			{
-				ignore: [`comments`],
-			},
-		],
+		"block-no-empty": true,
 		"color-function-notation": `modern`,
 		"color-hex-alpha": `never`,
 		"color-hex-length": `long`,

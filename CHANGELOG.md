@@ -13,6 +13,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and 
 	- `stylelint` version `17.0.0` or higher,
 	- `node.js` version `20.19.0` or higher.
 
+### Added
+
+- Empty blocks with comments inside them are no longer considered problems.
+
 ## [5.0.0] — 2024–10–30
 
 ### Changed

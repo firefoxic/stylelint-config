@@ -3,13 +3,21 @@ import { testRule } from "../utils/testRule.js"
 let rule = `block-no-empty`
 
 let code = `
-.valid {
+.valid-1 {
 	gap: 0;
 }
 
+.valid-2 {
+	/* foo */
+}
+
 @media print {
-	.valid {
+	.valid-1 {
 		gap: 0;
+	}
+
+	.valid-2 {
+		/* bar */
 	}
 }
 
@@ -20,20 +28,12 @@ let code = `
 
 }
 
-.invalid-3 {
-	/* foo */
-}
-
 @media print {
 	.invalid-1 {
 	}
 
 	.invalid-2 {
 
-	}
-
-	.invalid-3 {
-		/* bar */
 	}
 }
 `
@@ -44,29 +44,7 @@ testRule({
 	code,
 	expectedWarnings: [
 		{
-			line: 12,
-			column: 12,
-			endLine: 13,
-			endColumn: 2,
-			rule,
-			url: undefined,
-			fix: undefined,
-			severity: `error`,
-			text: `Unexpected empty block (${rule})`,
-		},
-		{
-			line: 15,
-			column: 12,
-			endLine: 17,
-			endColumn: 2,
-			rule,
-			url: undefined,
-			fix: undefined,
-			severity: `error`,
-			text: `Unexpected empty block (${rule})`,
-		},
-		{
-			line: 19,
+			line: 20,
 			column: 12,
 			endLine: 21,
 			endColumn: 2,
@@ -77,10 +55,10 @@ testRule({
 			text: `Unexpected empty block (${rule})`,
 		},
 		{
-			line: 24,
-			column: 13,
+			line: 23,
+			column: 12,
 			endLine: 25,
-			endColumn: 3,
+			endColumn: 2,
 			rule,
 			url: undefined,
 			fix: undefined,
@@ -88,7 +66,7 @@ testRule({
 			text: `Unexpected empty block (${rule})`,
 		},
 		{
-			line: 27,
+			line: 28,
 			column: 13,
 			endLine: 29,
 			endColumn: 3,
