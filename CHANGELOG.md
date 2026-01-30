@@ -17,13 +17,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and 
 - Hex colors are no longer allowed.
 - Color function names with alpha are no longer allowed.
 
-### Fixed
-
-- The `display` property now not only disallows legacy and short notation, but also automatically fixes it to the full modern notation.
-
 ### Added
 
 - Empty blocks with comments inside them are no longer considered problems.
+
+### Fixed
+
+- The `display` property now not only disallows legacy and short notation, but also automatically fixes it to the full modern notation.
 
 ## [5.0.0] — 2024–10–30
 
