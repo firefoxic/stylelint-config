@@ -7,6 +7,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and 
 
 ## [Unreleased]
 
+## [6.0.0] — 2026–01–30
+
 ### Changed
 
 - The plugin now requires:
@@ -69,7 +71,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and 
 
 - Base config for `stylelint`.
 
-[Unreleased]: https://github.com/firefoxic/stylelint-config/compare/v5.0.0...HEAD
+[Unreleased]: https://github.com/firefoxic/stylelint-config/compare/v6.0.0...HEAD
+[6.0.0]: https://github.com/firefoxic/stylelint-config/compare/v5.0.0...v6.0.0
 [5.0.0]: https://github.com/firefoxic/stylelint-config/compare/v4.0.0...v5.0.0
 [4.0.0]: https://github.com/firefoxic/stylelint-config/compare/v3.0.0...v4.0.0
 [3.0.0]: https://github.com/firefoxic/stylelint-config/compare/v2.0.0...v3.0.0
