@@ -31,22 +31,8 @@ export default {
 		"declaration-block-no-shorthand-property-overrides": true,
 		"declaration-block-single-line-max-declarations": 0,
 		"declaration-no-important": true,
-		"declaration-property-value-disallowed-list": {
-			display: [
-				`inline-block`,
-				`inline-table`,
-				`inline-flex`,
-				`inline-grid`,
-				`inline`,
-				`block`,
-				`flex`,
-				`grid`,
-				`table`,
-				`list-item`,
-				`flow-root`,
-			],
-		},
 		"declaration-property-value-no-unknown": true,
+		"display-notation": `full`,
 		"font-family-name-quotes": `always-where-required`,
 		"font-family-no-duplicate-names": [
 			true,

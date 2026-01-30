@@ -1,6 +1,6 @@
 import { testRule } from "../utils/testRule.js"
 
-let rule = `declaration-property-value-disallowed-list`
+let rule = `display-notation`
 
 let code = `
 .valid-1 {
@@ -102,7 +102,7 @@ testRule({
 			url: undefined,
 			fix: undefined,
 			severity: `error`,
-			text: `Unexpected value "block" for property "display" (${rule})`,
+			text: `Expected "block" to be "block flow" (${rule})`,
 		},
 		{
 			line: 51,
@@ -113,7 +113,7 @@ testRule({
 			url: undefined,
 			fix: undefined,
 			severity: `error`,
-			text: `Unexpected value "inline" for property "display" (${rule})`,
+			text: `Expected "inline" to be "inline flow" (${rule})`,
 		},
 		{
 			line: 55,
@@ -124,7 +124,7 @@ testRule({
 			url: undefined,
 			fix: undefined,
 			severity: `error`,
-			text: `Unexpected value "flex" for property "display" (${rule})`,
+			text: `Expected "flex" to be "block flex" (${rule})`,
 		},
 		{
 			line: 59,
@@ -135,7 +135,7 @@ testRule({
 			url: undefined,
 			fix: undefined,
 			severity: `error`,
-			text: `Unexpected value "grid" for property "display" (${rule})`,
+			text: `Expected "grid" to be "block grid" (${rule})`,
 		},
 		{
 			line: 63,
@@ -146,7 +146,7 @@ testRule({
 			url: undefined,
 			fix: undefined,
 			severity: `error`,
-			text: `Unexpected value "flow-root" for property "display" (${rule})`,
+			text: `Expected "flow-root" to be "block flow-root" (${rule})`,
 		},
 		{
 			line: 67,
@@ -157,7 +157,7 @@ testRule({
 			url: undefined,
 			fix: undefined,
 			severity: `error`,
-			text: `Unexpected value "inline-block" for property "display" (${rule})`,
+			text: `Expected "inline-block" to be "inline flow-root" (${rule})`,
 		},
 		{
 			line: 71,
@@ -168,7 +168,7 @@ testRule({
 			url: undefined,
 			fix: undefined,
 			severity: `error`,
-			text: `Unexpected value "inline-flex" for property "display" (${rule})`,
+			text: `Expected "inline-flex" to be "inline flex" (${rule})`,
 		},
 		{
 			line: 75,
@@ -179,7 +179,7 @@ testRule({
 			url: undefined,
 			fix: undefined,
 			severity: `error`,
-			text: `Unexpected value "inline-grid" for property "display" (${rule})`,
+			text: `Expected "inline-grid" to be "inline grid" (${rule})`,
 		},
 		{
 			line: 79,
@@ -190,7 +190,7 @@ testRule({
 			url: undefined,
 			fix: undefined,
 			severity: `error`,
-			text: `Unexpected value "list-item" for property "display" (${rule})`,
+			text: `Expected "list-item" to be "block flow list-item" (${rule})`,
 		},
 		{
 			line: 83,
@@ -201,7 +201,7 @@ testRule({
 			url: undefined,
 			fix: undefined,
 			severity: `error`,
-			text: `Unexpected value "table" for property "display" (${rule})`,
+			text: `Expected "table" to be "block table" (${rule})`,
 		},
 	],
 })
