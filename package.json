@@ -33,8 +33,7 @@
 		"stylelint-plugin-logical-css": "^1.3.0"
 	},
 	"scripts": {
-		"help": "make help",
-		"eslint": "eslint"
+		"help": "make help"
 	},
 	"devDependencies": {
 		"@firefoxic/eslint-config": "^6.0.1",

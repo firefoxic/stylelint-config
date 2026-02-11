@@ -1,3 +1,5 @@
+export PATH := ./node_modules/.bin:$(PATH)
+
 setup: ## 🛠️  Setup the project environment
 	$(call remove_wrong_installation)
 	$(call install_pnpm)
@@ -7,11 +9,11 @@ setup: ## 🛠️  Setup the project environment
 .PHONY: setup
 
 lint: ## 🧬 Check code by eslint
-	@node --run eslint
+	@eslint
 .PHONY: lint
 
 fix: ## 🩹 Fix code by eslint
-	@node --run eslint -- --fix
+	@eslint --fix
 .PHONY: fix
 
 test: ## 🧪 Run tests
