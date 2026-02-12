@@ -8,12 +8,12 @@ setup: ## 🛠️  Setup the project environment
 	$(call setup_githooks)
 .PHONY: setup
 
-lint: ## 🧬 Check code by eslint
-	@eslint
+lint: ## 🧬 Check code by oxlint
+	@oxlint
 .PHONY: lint
 
-fix: ## 🩹 Fix code by eslint
-	@eslint --fix
+fix: ## 🩹 Fix code by oxlint
+	@oxlint --fix
 .PHONY: fix
 
 test: ## 🧪 Run tests
