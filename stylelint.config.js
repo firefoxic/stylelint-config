@@ -106,8 +106,9 @@ export default {
 		"value-keyword-case": `lower`,
 		"value-no-vendor-prefix": true,
 
-		"plugin/use-logical-properties-and-values": true,
-		"plugin/use-logical-units": true,
+		"logical-css/require-logical-keywords": true,
+		"logical-css/require-logical-properties": true,
+		"logical-css/require-logical-units": true,
 
 		"gamut/color-no-out-gamut-range": true,
 

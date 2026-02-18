@@ -30,7 +30,7 @@
 	"dependencies": {
 		"@stylistic/stylelint-plugin": "^5.0.1",
 		"stylelint-gamut": "^2.0.0",
-		"stylelint-plugin-logical-css": "^1.3.0"
+		"stylelint-plugin-logical-css": "^2.0.2"
 	},
 	"scripts": {
 		"help": "make help"
