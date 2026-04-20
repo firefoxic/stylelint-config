@@ -10,6 +10,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and 
 ### Changed
 
 - The `relative-selector-nesting-notation` rule has been added with the `implicit` option. This means that optional nesting selectors (`&`) must be omitted.
+- The `selector-no-deprecated` rule has been added. This rule flags selectors that were removed or deprecated after being in the CSS specifications, including Editor Drafts, and were either:
+	- shipped in a release browser version;
+	- shipped in a pre-release browser version;
+	- shipped but behind feature flags;
+	- polyfilled with some adoption before any browser shipped;
+	- given an MDN page.
 
 ## [6.0.2] — 2026–03–19
 
