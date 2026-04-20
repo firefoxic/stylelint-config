@@ -28,7 +28,7 @@ testRule({
 			url: undefined,
 			fix: undefined,
 			severity: `error`,
-			text: `Unexpected missing generic font family (${rule})`,
+			text: `Missing generic font family (${rule})`,
 		},
 		{
 			line: 10,
@@ -39,7 +39,7 @@ testRule({
 			url: undefined,
 			fix: undefined,
 			severity: `error`,
-			text: `Unexpected missing generic font family (${rule})`,
+			text: `Missing generic font family (${rule})`,
 		},
 	],
 })

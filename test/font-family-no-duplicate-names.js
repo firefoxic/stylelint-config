@@ -38,7 +38,7 @@ testRule({
 			url: undefined,
 			fix: undefined,
 			severity: `error`,
-			text: `Unexpected duplicate font-family name Arial (${rule})`,
+			text: `Duplicate font-family name "Arial" (${rule})`,
 		},
 		{
 			line: 19,
@@ -49,7 +49,7 @@ testRule({
 			url: undefined,
 			fix: undefined,
 			severity: `error`,
-			text: `Unexpected duplicate font-family name sans-serif (${rule})`,
+			text: `Duplicate font-family name "sans-serif" (${rule})`,
 		},
 	],
 })

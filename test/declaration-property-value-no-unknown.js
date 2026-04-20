@@ -25,7 +25,7 @@ testRule({
 			url: undefined,
 			fix: undefined,
 			severity: `error`,
-			text: `Unexpected unknown value "red" for property "gap" (${rule})`,
+			text: `Unknown value "red" for property "gap" (${rule})`,
 		},
 		{
 			line: 6,
@@ -36,7 +36,7 @@ testRule({
 			url: undefined,
 			fix: undefined,
 			severity: `error`,
-			text: `Unexpected unknown value "unknown" for property "gap" (${rule})`,
+			text: `Unknown value "unknown" for property "gap" (${rule})`,
 		},
 		{
 			line: 7,
@@ -47,7 +47,7 @@ testRule({
 			url: undefined,
 			fix: undefined,
 			severity: `error`,
-			text: `Unexpected unknown value "table-row" for property "display" (${rule})`,
+			text: `Unknown value "table-row" for property "display" (${rule})`,
 		},
 	],
 })

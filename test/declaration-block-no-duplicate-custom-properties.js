@@ -26,7 +26,7 @@ testRule({
 			url: undefined,
 			fix: undefined,
 			severity: `error`,
-			text: `Unexpected duplicate "--size" (${rule})`,
+			text: `Duplicate custom property "--size" (${rule})`,
 		},
 		{
 			line: 8,
@@ -37,7 +37,7 @@ testRule({
 			url: undefined,
 			fix: undefined,
 			severity: `error`,
-			text: `Unexpected duplicate "--size" (${rule})`,
+			text: `Duplicate custom property "--size" (${rule})`,
 		},
 	],
 })

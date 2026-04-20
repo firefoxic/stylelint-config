@@ -61,7 +61,7 @@ testRule({
 			url: undefined,
 			fix: undefined,
 			severity: `error`,
-			text: `Unexpected unknown property "my-property" (${rule})`,
+			text: `Unknown property "my-property" (${rule})`,
 		},
 		{
 			line: 42,
@@ -72,7 +72,7 @@ testRule({
 			url: undefined,
 			fix: undefined,
 			severity: `error`,
-			text: `Unexpected unknown property "colour" (${rule})`,
+			text: `Unknown property "colour" (${rule})`,
 		},
 	],
 })

@@ -33,7 +33,7 @@ testRule({
 			url: undefined,
 			fix: undefined,
 			severity: `error`,
-			text: `Unexpected missing var function for "--invalid-1" (${rule})`,
+			text: `Missing var function for "--invalid-1" (${rule})`,
 		},
 		{
 			line: 15,
@@ -44,7 +44,7 @@ testRule({
 			url: undefined,
 			fix: undefined,
 			severity: `error`,
-			text: `Unexpected missing var function for "--invalid-2" (${rule})`,
+			text: `Missing var function for "--invalid-2" (${rule})`,
 		},
 	],
 })

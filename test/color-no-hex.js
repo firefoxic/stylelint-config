@@ -30,7 +30,7 @@ testRule({
 			url: undefined,
 			fix: undefined,
 			severity: `error`,
-			text: `Unexpected hex color "#000" (${rule})`,
+			text: `Disallowed hex color "#000" (${rule})`,
 		},
 		{
 			line: 9,
@@ -41,7 +41,7 @@ testRule({
 			url: undefined,
 			fix: undefined,
 			severity: `error`,
-			text: `Unexpected hex color "#fff1aa" (${rule})`,
+			text: `Disallowed hex color "#fff1aa" (${rule})`,
 		},
 		{
 			line: 10,
@@ -52,7 +52,7 @@ testRule({
 			url: undefined,
 			fix: undefined,
 			severity: `error`,
-			text: `Unexpected hex color "#123456aa" (${rule})`,
+			text: `Disallowed hex color "#123456aa" (${rule})`,
 		},
 		{
 			line: 11,
@@ -63,7 +63,7 @@ testRule({
 			url: undefined,
 			fix: undefined,
 			severity: `error`,
-			text: `Unexpected hex color "#foobar" (${rule})`,
+			text: `Disallowed hex color "#foobar" (${rule})`,
 		},
 		{
 			line: 12,
@@ -74,7 +74,7 @@ testRule({
 			url: undefined,
 			fix: undefined,
 			severity: `error`,
-			text: `Unexpected hex color "#0000000000000000" (${rule})`,
+			text: `Disallowed hex color "#0000000000000000" (${rule})`,
 		},
 	],
 })

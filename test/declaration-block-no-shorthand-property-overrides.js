@@ -43,7 +43,7 @@ testRule({
 			url: undefined,
 			fix: undefined,
 			severity: `error`,
-			text: `Unexpected shorthand "padding" after "padding-left" (${rule})`,
+			text: `Overridden property "padding-left" by shorthand "padding" (${rule})`,
 		},
 		{
 			line: 14,
@@ -54,7 +54,7 @@ testRule({
 			url: undefined,
 			fix: undefined,
 			severity: `error`,
-			text: `Unexpected shorthand "transition" after "transition-property" (${rule})`,
+			text: `Overridden property "transition-property" by shorthand "transition" (${rule})`,
 		},
 		{
 			line: 19,
@@ -65,7 +65,7 @@ testRule({
 			url: undefined,
 			fix: undefined,
 			severity: `error`,
-			text: `Unexpected shorthand "-webkit-transition" after "-webkit-transition-property" (${rule})`,
+			text: `Overridden property "-webkit-transition-property" by shorthand "-webkit-transition" (${rule})`,
 		},
 		{
 			line: 24,
@@ -76,7 +76,7 @@ testRule({
 			url: undefined,
 			fix: undefined,
 			severity: `error`,
-			text: `Unexpected shorthand "border" after "border-top-width" (${rule})`,
+			text: `Overridden property "border-top-width" by shorthand "border" (${rule})`,
 		},
 	],
 })

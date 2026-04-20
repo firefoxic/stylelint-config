@@ -24,7 +24,7 @@ testRule({
 			fix: undefined,
 			rule,
 			severity: `error`,
-			text: `Unexpected unknown function "unknown" (${rule})`,
+			text: `Unknown function "unknown" (${rule})`,
 			url: undefined,
 		},
 	],

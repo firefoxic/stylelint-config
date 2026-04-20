@@ -39,7 +39,7 @@ testRule({
 			url: undefined,
 			fix: undefined,
 			severity: `error`,
-			text: `Unexpected quotes around "Arial" (${rule})`,
+			text: `Expected no quotes around "Arial" (${rule})`,
 		},
 		{
 			line: 20,
@@ -50,7 +50,7 @@ testRule({
 			url: undefined,
 			fix: undefined,
 			severity: `error`,
-			text: `Unexpected quotes around "Times New Roman" (${rule})`,
+			text: `Expected no quotes around "Times New Roman" (${rule})`,
 		},
 	],
 })

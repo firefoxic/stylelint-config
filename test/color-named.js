@@ -27,7 +27,7 @@ testRule({
 			url: undefined,
 			fix: undefined,
 			severity: `error`,
-			text: `Unexpected named color "black" (${rule})`,
+			text: `Disallowed named color "black" (${rule})`,
 		},
 		{
 			line: 9,
@@ -38,7 +38,7 @@ testRule({
 			url: undefined,
 			fix: undefined,
 			severity: `error`,
-			text: `Unexpected named color "white" (${rule})`,
+			text: `Disallowed named color "white" (${rule})`,
 		},
 	],
 })

@@ -26,7 +26,7 @@ testRule({
 			url: undefined,
 			fix: undefined,
 			severity: `error`,
-			text: `Unexpected !important (${rule})`,
+			text: `Disallowed !important (${rule})`,
 		},
 		{
 			line: 7,
@@ -37,7 +37,7 @@ testRule({
 			url: undefined,
 			fix: undefined,
 			severity: `error`,
-			text: `Unexpected !important (${rule})`,
+			text: `Disallowed !important (${rule})`,
 		},
 		{
 			line: 8,
@@ -48,7 +48,7 @@ testRule({
 			url: undefined,
 			fix: undefined,
 			severity: `error`,
-			text: `Unexpected !important (${rule})`,
+			text: `Disallowed !important (${rule})`,
 		},
 	],
 })

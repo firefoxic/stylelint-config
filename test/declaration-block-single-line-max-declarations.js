@@ -24,7 +24,7 @@ testRule({
 			url: undefined,
 			fix: undefined,
 			severity: `error`,
-			text: `Expected no more than 0 declarations (${rule})`,
+			text: `Too many declarations, maximum 0 (${rule})`,
 		},
 	],
 })

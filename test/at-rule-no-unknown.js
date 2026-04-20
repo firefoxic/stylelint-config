@@ -119,7 +119,7 @@ testRule({
 			url: undefined,
 			fix: undefined,
 			severity: `error`,
-			text: `Unexpected unknown at-rule "@unknown-at-rule" (${rule})`,
+			text: `Unknown at-rule "@unknown-at-rule" (${rule})`,
 		},
 	],
 })

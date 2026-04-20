@@ -92,7 +92,7 @@ testRule({
 			url: undefined,
 			fix: undefined,
 			severity: `error`,
-			text: `Unexpected empty line before at-rule (${rule})`,
+			text: `Expected no empty line before at-rule (${rule})`,
 		},
 		{
 			line: 46,

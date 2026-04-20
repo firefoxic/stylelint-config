@@ -52,7 +52,7 @@ testRule({
 			url: undefined,
 			fix: undefined,
 			severity: `error`,
-			text: `Unexpected empty block (${rule})`,
+			text: `Empty block (${rule})`,
 		},
 		{
 			line: 23,
@@ -63,7 +63,7 @@ testRule({
 			url: undefined,
 			fix: undefined,
 			severity: `error`,
-			text: `Unexpected empty block (${rule})`,
+			text: `Empty block (${rule})`,
 		},
 		{
 			line: 28,
@@ -74,7 +74,7 @@ testRule({
 			url: undefined,
 			fix: undefined,
 			severity: `error`,
-			text: `Unexpected empty block (${rule})`,
+			text: `Empty block (${rule})`,
 		},
 		{
 			line: 31,
@@ -85,7 +85,7 @@ testRule({
 			url: undefined,
 			fix: undefined,
 			severity: `error`,
-			text: `Unexpected empty block (${rule})`,
+			text: `Empty block (${rule})`,
 		},
 	],
 })

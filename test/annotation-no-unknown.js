@@ -27,7 +27,7 @@ testRule({
 			url: undefined,
 			fix: undefined,
 			severity: `error`,
-			text: `Unexpected unknown annotation "!imprtant" (${rule})`,
+			text: `Unknown annotation "!imprtant" (${rule})`,
 		},
 	],
 })

@@ -32,7 +32,7 @@ testRule({
 			url: undefined,
 			fix: undefined,
 			severity: `error`,
-			text: `Unexpected empty comment (${rule})`,
+			text: `Empty comment (${rule})`,
 		},
 		{
 			line: 10,
@@ -43,7 +43,7 @@ testRule({
 			url: undefined,
 			fix: undefined,
 			severity: `error`,
-			text: `Unexpected empty comment (${rule})`,
+			text: `Empty comment (${rule})`,
 		},
 		{
 			line: 12,
@@ -54,7 +54,7 @@ testRule({
 			url: undefined,
 			fix: undefined,
 			severity: `error`,
-			text: `Unexpected empty comment (${rule})`,
+			text: `Empty comment (${rule})`,
 		},
 	],
 })

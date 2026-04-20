@@ -31,7 +31,7 @@ testRule({
 			fix: undefined,
 			rule,
 			severity: `error`,
-			text: `Unexpected nonstandard direction (${rule})`,
+			text: `Nonstandard direction (${rule})`,
 			url: undefined,
 		},
 		{
@@ -42,7 +42,7 @@ testRule({
 			fix: undefined,
 			rule,
 			severity: `error`,
-			text: `Unexpected nonstandard direction (${rule})`,
+			text: `Nonstandard direction (${rule})`,
 			url: undefined,
 		},
 		{
@@ -53,7 +53,7 @@ testRule({
 			fix: undefined,
 			rule,
 			severity: `error`,
-			text: `Unexpected nonstandard direction (${rule})`,
+			text: `Nonstandard direction (${rule})`,
 			url: undefined,
 		},
 		{
@@ -64,7 +64,7 @@ testRule({
 			fix: undefined,
 			rule,
 			severity: `error`,
-			text: `Unexpected nonstandard direction (${rule})`,
+			text: `Nonstandard direction (${rule})`,
 			url: undefined,
 		},
 		{
@@ -75,7 +75,7 @@ testRule({
 			fix: undefined,
 			rule,
 			severity: `error`,
-			text: `Unexpected nonstandard direction (${rule})`,
+			text: `Nonstandard direction (${rule})`,
 			url: undefined,
 		},
 	],

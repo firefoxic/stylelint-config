@@ -38,7 +38,7 @@ testRule({
 			url: undefined,
 			fix: undefined,
 			severity: `error`,
-			text: `Unexpected vendor-prefixed at-rule "@-webkit-keyframes" (${rule})`,
+			text: `Vendor-prefixed at-rule "@-webkit-keyframes" (${rule})`,
 		},
 		{
 			line: 18,
@@ -49,7 +49,7 @@ testRule({
 			url: undefined,
 			fix: undefined,
 			severity: `error`,
-			text: `Unexpected vendor-prefixed at-rule "@-ms-viewport" (${rule})`,
+			text: `Vendor-prefixed at-rule "@-ms-viewport" (${rule})`,
 		},
 	],
 })

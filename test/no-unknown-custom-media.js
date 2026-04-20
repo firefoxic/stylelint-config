@@ -30,7 +30,7 @@ testRule({
 			url: undefined,
 			fix: undefined,
 			severity: `error`,
-			text: `Unexpected unknown custom media "--invalid" (${rule})`,
+			text: `Unknown custom media query "--invalid" (${rule})`,
 		},
 		{
 			line: 12,
@@ -41,7 +41,7 @@ testRule({
 			url: undefined,
 			fix: undefined,
 			severity: `error`,
-			text: `Unexpected unknown custom media "--invalid" (${rule})`,
+			text: `Unknown custom media query "--invalid" (${rule})`,
 		},
 	],
 })
