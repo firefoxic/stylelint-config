@@ -7,6 +7,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and 
 
 ## [Unreleased]
 
+### Changed
+
+- The `relative-selector-nesting-notation` rule has been added with the `implicit` option. This means that optional nesting selectors (`&`) must be omitted.
+
 ## [6.0.2] — 2026–03–19
 
 ### Fixed

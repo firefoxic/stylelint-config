@@ -78,6 +78,7 @@ export default {
 			},
 		],
 		"property-no-vendor-prefix": true,
+		"relative-selector-nesting-notation": `implicit`,
 		"rule-empty-line-before": [
 			`always`,
 			{
