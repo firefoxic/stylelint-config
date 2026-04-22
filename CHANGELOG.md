@@ -7,6 +7,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and 
 
 ## [Unreleased]
 
+## [7.0.0] — 2026–04–22
+
 ### Changed
 
 - The `relative-selector-nesting-notation` rule has been added with the `implicit` option. This means that optional nesting selectors (`&`) must be omitted.
@@ -93,7 +95,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and 
 
 - Base config for `stylelint`.
 
-[Unreleased]: https://github.com/firefoxic/stylelint-config/compare/v6.0.2...HEAD
+[Unreleased]: https://github.com/firefoxic/stylelint-config/compare/v7.0.0...HEAD
+[7.0.0]: https://github.com/firefoxic/stylelint-config/compare/v6.0.2...v7.0.0
 [6.0.2]: https://github.com/firefoxic/stylelint-config/compare/v6.0.1...v6.0.2
 [6.0.1]: https://github.com/firefoxic/stylelint-config/compare/v6.0.0...v6.0.1
 [6.0.0]: https://github.com/firefoxic/stylelint-config/compare/v5.0.0...v6.0.0
