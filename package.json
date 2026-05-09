@@ -21,8 +21,19 @@
 		"./stylelint.config.js"
 	],
 	"engines": {
-		"node": ">=20.19",
-		"pnpm": ">=10.30"
+		"node": ">=20.19"
+	},
+	"devEngines": {
+		"runtime": {
+			"name": "node",
+			"version": ">=20.19",
+			"onFail": "download"
+		},
+		"packageManager": {
+			"name": "pnpm",
+			"version": ">=11",
+			"onFail": "download"
+		}
 	},
 	"peerDependencies": {
 		"stylelint": "^17.8.0"
