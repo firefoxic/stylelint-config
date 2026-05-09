@@ -224,10 +224,10 @@ importers:
         specifier: runtime:>=20.19
         version: runtime:26.1.0
       oxlint:
-        specifier: ^1.60.0
+        specifier: ^1.63.0
         version: 1.63.0
       stylelint:
-        specifier: ^17.8.0
+        specifier: ^17.11.0
         version: 17.11.0
 
 packages:
