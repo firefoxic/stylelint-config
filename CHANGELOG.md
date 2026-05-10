@@ -39,11 +39,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and 
 
 ### Changed
 
-- The plugin now requires:
-	- `stylelint` version `17.1.0` or higher,
-	- `node.js` version `20.19.0` or higher.
-- Hex colors are no longer allowed.
-- Color function names with alpha are no longer allowed.
+- The config now requires:
+	- `stylelint` version `17.1.0` or higher,
+	- `node.js` version `20.19.0` or higher.
+- Hex colors are no longer allowed.
+- Color function names with alpha are no longer allowed.
 
 ### Added
 
