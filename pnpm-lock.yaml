@@ -218,7 +218,7 @@ importers:
         specifier: ^0.3.1
         version: 0.3.1(eslint@10.3.0)(oxlint@1.63.0)
       node:
-        specifier: runtime:>=20.19
+        specifier: runtime:>=22.22
         version: runtime:26.1.0
       oxlint:
         specifier: ^1.63.0

@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and 
 
 ### Changed
 
+- The config now requires `node.js` version `22.22.0` or higher.
 - The config now requires `stylelint` version `17.11.0` or higher.
 - The `stylelint-plugin-logical-css` plugin has been removed. Its rules have been replaced with native ones:
 
