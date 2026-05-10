@@ -17,6 +17,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and 
 	- `require-logical-units` → `unit-layout-mappings`.
 
 	The new rules have the `flow-relative` option set, which corresponds to the plugin’s previous configuration. That is, the config still requires logical properties, keywords, and units. Additionally, properties specified as values of other properties, such as `transition`, are now also processed.
+- The `selector-no-invalid` rule has been added.
 
 ### Added
 

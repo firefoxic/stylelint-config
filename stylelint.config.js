@@ -99,6 +99,7 @@ export default {
 		"selector-max-id": 0,
 		"selector-max-universal": 2,
 		"selector-no-deprecated": true,
+		"selector-no-invalid": true,
 		"selector-not-notation": `complex`,
 		"selector-pseudo-class-no-unknown": true,
 		"selector-pseudo-element-colon-notation": `double`,
