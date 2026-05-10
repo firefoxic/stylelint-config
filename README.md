@@ -20,8 +20,8 @@ pnpm add -D stylelint @firefoxic/stylelint-config
 Set your `stylelint.config.js` to:
 
 ```js
+/** @type {import('stylelint').Config} */
 export default {
-	customSyntax: "postcss-scss", // If your styles syntax is different from CSS (don't forget to install the package)
 	extends: "@firefoxic/stylelint-config",
 	rules: {
 		// Your overrides or additions to rules
