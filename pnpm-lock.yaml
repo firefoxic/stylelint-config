@@ -213,9 +213,6 @@ importers:
       stylelint-gamut:
         specifier: ^2.0.0
         version: 2.0.0(stylelint@17.11.0)
-      stylelint-plugin-logical-css:
-        specifier: ^2.1.0
-        version: 2.1.0(stylelint@17.11.0)
     devDependencies:
       '@firefoxic/oxlint-config':
         specifier: ^0.3.1
@@ -1186,11 +1183,6 @@ packages:
     peerDependencies:
       stylelint: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
 
-  stylelint-plugin-logical-css@2.1.0:
-    resolution: {integrity: sha512-625OT+p5y2kkGBaRV7uTYscuH0m1UueMXh0WcidrXgwF2DOnKov+un9tvuyNG+SUC07W0ibcn+fZvQs/keskww==}
-    peerDependencies:
-      stylelint: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
-
   stylelint@17.11.0:
     resolution: {integrity: sha512-/3czzmbF9XdGWvReDF3Ex4R23Ajolo7j8RB2bFNEqk6Ht356nlpVV+G5bG2Qt8AW1ofJzXztBRDnAtd7cgowWA==}
     engines: {node: '>=20.19.0'}
@@ -1971,10 +1963,6 @@ snapshots:
   stylelint-gamut@2.0.0(stylelint@17.11.0):
     dependencies:
       colorjs.io: 0.4.5
-      stylelint: 17.11.0
-
-  stylelint-plugin-logical-css@2.1.0(stylelint@17.11.0):
-    dependencies:
       stylelint: 17.11.0
 
   stylelint@17.11.0:

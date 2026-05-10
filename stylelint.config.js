@@ -1,5 +1,11 @@
 /** @type {import('stylelint').Config} */
 export default {
+	languageOptions: {
+		directionality: {
+			block: `top-to-bottom`,
+			inline: `left-to-right`,
+		},
+	},
 	plugins: [
 		`@stylistic/stylelint-plugin`,
 		`stylelint-plugin-logical-css`,
@@ -71,6 +77,7 @@ export default {
 		"no-invalid-position-at-import-rule": true,
 		"no-irregular-whitespace": true,
 		"no-unknown-custom-media": true,
+		"property-layout-mappings": `flow-relative`,
 		"property-no-unknown": [
 			true,
 			{
@@ -104,13 +111,11 @@ export default {
 			},
 		],
 		"string-no-newline": true,
+		"unit-layout-mappings": `flow-relative`,
 		"unit-no-unknown": true,
 		"value-keyword-case": `lower`,
+		"value-keyword-layout-mappings": `flow-relative`,
 		"value-no-vendor-prefix": true,
-
-		"logical-css/require-logical-keywords": true,
-		"logical-css/require-logical-properties": true,
-		"logical-css/require-logical-units": true,
 
 		"gamut/color-no-out-gamut-range": true,
 

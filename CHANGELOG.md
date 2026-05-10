@@ -10,6 +10,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and 
 ### Changed
 
 - The config now requires `stylelint` version `17.11.0` or higher.
+- The `stylelint-plugin-logical-css` plugin has been removed. Its rules have been replaced with native ones:
+
+	- `require-logical-properties` → `property-layout-mappings`,
+	- `require-logical-keywords` → `value-keyword-layout-mappings`,
+	- `require-logical-units` → `unit-layout-mappings`.
+
+	The new rules have the `flow-relative` option set, which corresponds to the plugin’s previous configuration. That is, the config still requires logical properties, keywords, and units. Additionally, properties specified as values of other properties, such as `transition`, are now also processed.
+
+### Added
+
+- The configuration property `languageOptions.directionality` with the fields `block: “top-to-bottom”` and `inline: “left-to-right”` has been added to ensure that auto-fix works correctly for the new rules `property-layout-mappings`, `value-keyword-layout-mappings`, and `unit-layout-mappings`.
 
 ## [7.0.0] — 2026–04–22
 
