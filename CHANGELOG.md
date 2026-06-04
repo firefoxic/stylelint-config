@@ -7,6 +7,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and 
 
 ## [Unreleased]
 
+## [8.0.1] — 2026–06–04
+
 ### Fixed
 
 - The unnecessary dependency has been removed from the config.
@@ -118,7 +120,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and 
 
 - Base config for `stylelint`.
 
-[Unreleased]: https://github.com/firefoxic/stylelint-config/compare/v8.0.0...HEAD
+[Unreleased]: https://github.com/firefoxic/stylelint-config/compare/v8.0.1...HEAD
+[8.0.1]: https://github.com/firefoxic/stylelint-config/compare/v8.0.0...v8.0.1
 [8.0.0]: https://github.com/firefoxic/stylelint-config/compare/v7.0.0...v8.0.0
 [7.0.0]: https://github.com/firefoxic/stylelint-config/compare/v6.0.2...v7.0.0
 [6.0.2]: https://github.com/firefoxic/stylelint-config/compare/v6.0.1...v6.0.2
