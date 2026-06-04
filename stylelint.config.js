@@ -8,7 +8,6 @@ export default {
 	},
 	plugins: [
 		`@stylistic/stylelint-plugin`,
-		`stylelint-plugin-logical-css`,
 		`stylelint-gamut`,
 	],
 	rules: {

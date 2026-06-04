@@ -7,6 +7,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and 
 
 ## [Unreleased]
 
+### Fixed
+
+- The unnecessary dependency has been removed from the config.
+
 ## [8.0.0] — 2026–05–12
 
 ### Changed
