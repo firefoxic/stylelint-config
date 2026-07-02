@@ -4,6 +4,18 @@ import { describe, it } from "node:test"
 import stylelint from "stylelint"
 
 /**
+ * Get the rule config from the `stylelint.config.js` file.
+ *
+ * @param {string} rule - The name of the rule.
+ * @returns {any} The config of the specified rule.
+ */
+async function getRuleConfig (rule) {
+	let configObject = await import(`../stylelint.config.js`).then((m) => m.default)
+
+	return configObject.rules[rule]
+}
+
+/**
  * Test the specified rule with its configuration from the `stylelint.config.js` file.
  *
  * @param {Object} test - Test run parameters.
@@ -31,16 +43,4 @@ export async function testRule ({ description, rule, plugin, code, expectedWarni
 			deepEqual(warnings, expectedWarnings)
 		})
 	})
-}
-
-/**
- * Get the rule config from the `stylelint.config.js` file.
- *
- * @param {string} rule - The name of the rule.
- * @returns {any} The config of the specified rule.
- */
-async function getRuleConfig (rule) {
-	let configObject = await import(`../stylelint.config.js`).then((m) => m.default)
-
-	return configObject.rules[rule]
 }

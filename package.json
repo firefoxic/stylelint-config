@@ -26,29 +26,29 @@
 	"devEngines": {
 		"runtime": {
 			"name": "node",
-			"version": ">=22.22",
+			"version": ">=26.4",
 			"onFail": "download"
 		},
 		"packageManager": {
 			"name": "pnpm",
-			"version": ">=11",
+			"version": ">=11.9",
 			"onFail": "download"
 		}
 	},
 	"peerDependencies": {
-		"stylelint": "^17.11.0"
+		"stylelint": "^17.14.0"
 	},
 	"dependencies": {
-		"@stylistic/stylelint-plugin": "^5.2.0",
+		"@stylistic/stylelint-plugin": "^5.2.1",
 		"stylelint-gamut": "^2.0.1"
 	},
 	"scripts": {
 		"help": "make help"
 	},
 	"devDependencies": {
-		"@firefoxic/oxlint-config": "^0.3.1",
-		"oxlint": "^1.68.0",
-		"stylelint": "^17.12.0"
+		"@firefoxic/oxlint-config": "^0.4.0",
+		"oxlint": "^1.72.0",
+		"stylelint": "^17.14.0"
 	},
 	"keywords": [
 		"config",
