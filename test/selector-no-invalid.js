@@ -62,7 +62,7 @@ testRule({
 			fix: undefined,
 			rule,
 			severity: `error`,
-			text: `Invalid selector ":dir(foo)", expected "ltr" or "rtl" (${rule})`,
+			text: `Invalid selector ":dir(foo)", expected "ltr" or "rtl" within ":dir()" (${rule})`,
 			url: undefined,
 		},
 	],

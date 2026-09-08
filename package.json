@@ -20,35 +20,33 @@
 	"files": [
 		"./stylelint.config.js"
 	],
-	"engines": {
-		"node": ">=22.22"
-	},
-	"devEngines": {
-		"runtime": {
-			"name": "node",
-			"version": ">=26.4",
-			"onFail": "download"
-		},
-		"packageManager": {
-			"name": "pnpm",
-			"version": ">=11.9",
-			"onFail": "download"
-		}
-	},
 	"peerDependencies": {
 		"stylelint": "^17.14.0"
 	},
 	"dependencies": {
-		"@stylistic/stylelint-plugin": "^5.2.1",
+		"@stylistic/stylelint-plugin": "^5.3.1",
 		"stylelint-gamut": "^2.0.1"
 	},
 	"scripts": {
-		"help": "make help"
+		"help": "make help",
+		"prepare": "git config --local core.hooksPath .githooks || true"
 	},
 	"devDependencies": {
-		"@firefoxic/oxlint-config": "^0.4.0",
-		"oxlint": "^1.72.0",
-		"stylelint": "^17.14.0"
+		"@firefoxic/oxlint-config": "~0.5",
+		"oxlint": "^1",
+		"stylelint": "^17"
+	},
+	"devEngines": {
+		"runtime": {
+			"name": "node",
+			"version": ">=26.12",
+			"onFail": "download"
+		},
+		"packageManager": {
+			"name": "pnpm",
+			"version": ">=12.15",
+			"onFail": "download"
+		}
 	},
 	"keywords": [
 		"config",

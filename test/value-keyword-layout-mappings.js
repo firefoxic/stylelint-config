@@ -9,7 +9,7 @@ let code = `
 	float: inline-start;
 	clear: inline-end;
 	resize: inline;
-	caption-side: block-start;
+	caption-side: top;
 	box-orient: inline-axis;
 	offset-anchor: block-end inline-start;
 	offset-position: block-start inline-end;
@@ -21,7 +21,6 @@ let code = `
   float: left;
   clear: right;
   resize: horizontal;
-  caption-side: top;
   box-orient: vertical;
   offset-anchor: bottom left;
   offset-position: top right;
@@ -89,20 +88,9 @@ testRule({
 			url: undefined,
 		},
 		{
-			line: 20,
-			column: 17,
-			endLine: 20,
-			endColumn: 20,
-			fix: undefined,
-			rule,
-			severity: `error`,
-			text: `Disallowed physical keyword "top" (${rule})`,
-			url: undefined,
-		},
-		{
-			line: 22,
+			line: 21,
 			column: 18,
-			endLine: 22,
+			endLine: 21,
 			endColumn: 24,
 			fix: undefined,
 			rule,
@@ -111,9 +99,9 @@ testRule({
 			url: undefined,
 		},
 		{
-			line: 22,
+			line: 21,
 			column: 25,
-			endLine: 22,
+			endLine: 21,
 			endColumn: 29,
 			fix: undefined,
 			rule,
@@ -122,9 +110,9 @@ testRule({
 			url: undefined,
 		},
 		{
-			line: 23,
+			line: 22,
 			column: 20,
-			endLine: 23,
+			endLine: 22,
 			endColumn: 23,
 			fix: undefined,
 			rule,
@@ -133,9 +121,9 @@ testRule({
 			url: undefined,
 		},
 		{
-			line: 23,
+			line: 22,
 			column: 24,
-			endLine: 23,
+			endLine: 22,
 			endColumn: 29,
 			fix: undefined,
 			rule,
