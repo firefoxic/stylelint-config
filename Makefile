@@ -17,8 +17,12 @@ fix: ## 🩹 Fix code by oxlint
 .PHONY: fix
 
 test: ## 🧪 Run tests
-	@node --test
+	@vitest
 .PHONY: test
+
+test-watch: ## 👀 Run tests, and rerun them on every change
+	@vitest --watch
+.PHONY: test-watch
 
 verify: lint test ## ✅ Run every check
 .PHONY: verify

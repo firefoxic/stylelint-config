@@ -12,18 +12,18 @@ A single shareable stylelint config published as `@firefoxic/stylelint-config`. 
 
 Tooling runs through `make`; the Makefile puts `node_modules/.bin` on `PATH` and is the source of truth for dev commands, so read it rather than relying on a list here (`make help` prints the targets). Package manager is pnpm, runtime — node, both auto-downloaded via `devEngines` on failure.
 
-Running one test file (the runner is plain `node:test`, no config):
+The runner is Vitest, configured in [vitest.config.js](./vitest.config.js): `include` names `test/**/*.test.js`, because the files are named after the rules rather than by Vitest's default pattern, and `isolate: false` keeps the whole suite in one warm process. `make test-watch` reruns on change; a single file or a single name:
 
 ```shell
-node --test test/color-no-hex.js
-node --test --test-name-pattern="hex" test/
+pnpm exec vitest run test/color-no-hex.test.js
+pnpm exec vitest run --testNamePattern="hex"
 ```
 
 `pnpm install` also wires `core.hooksPath` to [.githooks/](./.githooks/), whose `pre-commit` stashes untracked/unstaged work and runs `make verify` on the staged tree.
 
 ## How the tests work
 
-Each rule the config enables gets one file under [test/](./test/), named after the rule; plugin rules live in a directory named after the plugin (`test/gamut/`, `test/@stylistic/`). A file is a single call to `testRule()` from [utils/testRule.js](./utils/testRule.js):
+Each rule the config enables gets one `<rule-name>.test.js` under [test/](./test/); plugin rules live in a directory named after the plugin (`test/gamut/`, `test/@stylistic/`). A file is a single call to `testRule()` from [utils/testRule.js](./utils/testRule.js):
 
 - one `code` string holding both valid and invalid CSS, commented or class-named to mark which is which;
 - `expectedWarnings` as a full deep-equal snapshot of stylelint's warning objects — `line`/`column`/`endLine`/`endColumn`, `text`, `severity`, and the literal `url: undefined, fix: undefined`. Because the assertion is `deepEqual`, every field must be present and exact, and line/column numbers shift whenever the `code` string is edited.

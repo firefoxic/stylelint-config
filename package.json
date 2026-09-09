@@ -34,7 +34,8 @@
 	"devDependencies": {
 		"@firefoxic/oxlint-config": "~0.5",
 		"oxlint": "^1",
-		"stylelint": "^17"
+		"stylelint": "^17",
+		"vitest": "^5"
 	},
 	"devEngines": {
 		"runtime": {
