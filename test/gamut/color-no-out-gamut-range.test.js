@@ -1,11 +1,6 @@
 import { testRule } from "../../utils/testRule.js"
 
-let plugin = {
-	name: `stylelint-gamut`,
-	prefix: `gamut/`,
-}
-
-let rule = `${plugin.prefix}color-no-out-gamut-range`
+let rule = `gamut/color-no-out-gamut-range`
 
 let code = `
 .valid-1 {
@@ -52,7 +47,6 @@ let code = `
 testRule({
 	description: `Out of gamut colors must be wrapped in the proper media query`,
 	rule,
-	plugin,
 	code,
 	expectedWarnings: [
 		{

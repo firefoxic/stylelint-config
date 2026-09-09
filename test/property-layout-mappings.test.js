@@ -49,7 +49,7 @@ testRule({
 			fix: undefined,
 			rule,
 			severity: `error`,
-			text: `Disallowed physical property "width" (${rule})`,
+			text: `Expected "width" to be "inline-size" (${rule})`,
 			url: undefined,
 		},
 		{
@@ -60,7 +60,7 @@ testRule({
 			fix: undefined,
 			rule,
 			severity: `error`,
-			text: `Disallowed physical property "height" (${rule})`,
+			text: `Expected "height" to be "block-size" (${rule})`,
 			url: undefined,
 		},
 		{
@@ -71,7 +71,7 @@ testRule({
 			fix: undefined,
 			rule,
 			severity: `error`,
-			text: `Disallowed physical property "margin-top" (${rule})`,
+			text: `Expected "margin-top" to be "margin-block-start" (${rule})`,
 			url: undefined,
 		},
 		{
@@ -82,7 +82,7 @@ testRule({
 			fix: undefined,
 			rule,
 			severity: `error`,
-			text: `Disallowed physical property "margin-left" (${rule})`,
+			text: `Expected "margin-left" to be "margin-inline-start" (${rule})`,
 			url: undefined,
 		},
 		{
@@ -93,7 +93,7 @@ testRule({
 			fix: undefined,
 			rule,
 			severity: `error`,
-			text: `Disallowed physical property "margin-right" (${rule})`,
+			text: `Expected "margin-right" to be "margin-inline-end" (${rule})`,
 			url: undefined,
 		},
 		{
@@ -104,7 +104,7 @@ testRule({
 			fix: undefined,
 			rule,
 			severity: `error`,
-			text: `Disallowed physical property "padding-top" (${rule})`,
+			text: `Expected "padding-top" to be "padding-block-start" (${rule})`,
 			url: undefined,
 		},
 		{
@@ -115,7 +115,7 @@ testRule({
 			fix: undefined,
 			rule,
 			severity: `error`,
-			text: `Disallowed physical property "padding-bottom" (${rule})`,
+			text: `Expected "padding-bottom" to be "padding-block-end" (${rule})`,
 			url: undefined,
 		},
 		{
@@ -126,7 +126,7 @@ testRule({
 			fix: undefined,
 			rule,
 			severity: `error`,
-			text: `Disallowed physical property "padding-right" (${rule})`,
+			text: `Expected "padding-right" to be "padding-inline-end" (${rule})`,
 			url: undefined,
 		},
 		{
@@ -137,7 +137,7 @@ testRule({
 			fix: undefined,
 			rule,
 			severity: `error`,
-			text: `Disallowed physical property "left" (${rule})`,
+			text: `Expected "left" to be "inset-inline-start" (${rule})`,
 			url: undefined,
 		},
 		{
@@ -148,7 +148,7 @@ testRule({
 			fix: undefined,
 			rule,
 			severity: `error`,
-			text: `Disallowed physical property "bottom" (${rule})`,
+			text: `Expected "bottom" to be "inset-block-end" (${rule})`,
 			url: undefined,
 		},
 		{
@@ -159,7 +159,7 @@ testRule({
 			fix: undefined,
 			rule,
 			severity: `error`,
-			text: `Disallowed physical property "border-left" (${rule})`,
+			text: `Expected "border-left" to be "border-inline-start" (${rule})`,
 			url: undefined,
 		},
 		{
@@ -170,7 +170,7 @@ testRule({
 			fix: undefined,
 			rule,
 			severity: `error`,
-			text: `Disallowed physical property "border-bottom-color" (${rule})`,
+			text: `Expected "border-bottom-color" to be "border-block-end-color" (${rule})`,
 			url: undefined,
 		},
 		{
@@ -181,7 +181,7 @@ testRule({
 			fix: undefined,
 			rule,
 			severity: `error`,
-			text: `Disallowed physical property "border-top-left-radius" (${rule})`,
+			text: `Expected "border-top-left-radius" to be "border-start-start-radius" (${rule})`,
 			url: undefined,
 		},
 		{
@@ -192,7 +192,7 @@ testRule({
 			fix: undefined,
 			rule,
 			severity: `error`,
-			text: `Disallowed physical property "margin-left" (${rule})`,
+			text: `Expected "margin-left" to be "margin-inline-start" (${rule})`,
 			url: undefined,
 		},
 	],

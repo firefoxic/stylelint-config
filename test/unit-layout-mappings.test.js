@@ -37,7 +37,7 @@ testRule({
 			fix: undefined,
 			rule,
 			severity: `error`,
-			text: `Disallowed physical unit "vh" (${rule})`,
+			text: `Expected "vh" to be "vb" (${rule})`,
 			url: undefined,
 		},
 		{
@@ -48,7 +48,7 @@ testRule({
 			fix: undefined,
 			rule,
 			severity: `error`,
-			text: `Disallowed physical unit "vw" (${rule})`,
+			text: `Expected "vw" to be "vi" (${rule})`,
 			url: undefined,
 		},
 		{
@@ -59,7 +59,7 @@ testRule({
 			fix: undefined,
 			rule,
 			severity: `error`,
-			text: `Disallowed physical unit "cqh" (${rule})`,
+			text: `Expected "cqh" to be "cqb" (${rule})`,
 			url: undefined,
 		},
 		{
@@ -70,7 +70,7 @@ testRule({
 			fix: undefined,
 			rule,
 			severity: `error`,
-			text: `Disallowed physical unit "cqw" (${rule})`,
+			text: `Expected "cqw" to be "cqi" (${rule})`,
 			url: undefined,
 		},
 		{
@@ -81,7 +81,7 @@ testRule({
 			fix: undefined,
 			rule,
 			severity: `error`,
-			text: `Disallowed physical unit "dvh" (${rule})`,
+			text: `Expected "dvh" to be "dvb" (${rule})`,
 			url: undefined,
 		},
 		{
@@ -92,7 +92,7 @@ testRule({
 			fix: undefined,
 			rule,
 			severity: `error`,
-			text: `Disallowed physical unit "vw" (${rule})`,
+			text: `Expected "vw" to be "vi" (${rule})`,
 			url: undefined,
 		},
 		{
@@ -103,7 +103,7 @@ testRule({
 			fix: undefined,
 			rule,
 			severity: `error`,
-			text: `Disallowed physical unit "vw" (${rule})`,
+			text: `Expected "vw" to be "vi" (${rule})`,
 			url: undefined,
 		},
 		{
@@ -114,7 +114,7 @@ testRule({
 			fix: undefined,
 			rule,
 			severity: `error`,
-			text: `Disallowed physical unit "vw" (${rule})`,
+			text: `Expected "vw" to be "vi" (${rule})`,
 			url: undefined,
 		},
 	],

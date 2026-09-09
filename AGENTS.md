@@ -23,14 +23,12 @@ pnpm exec vitest run --testNamePattern="hex"
 
 ## How the tests work
 
-Each rule the config enables gets one `<rule-name>.test.js` under [test/](./test/); plugin rules live in a directory named after the plugin (`test/gamut/`, `test/@stylistic/`). A file is a single call to `testRule()` from [utils/testRule.js](./utils/testRule.js):
+Each rule the config enables gets one `<rule-name>.test.js` under [test/](./test/); plugin rules live in a directory named after the plugin (`test/gamut/`, `test/@stylistic/`) and spell the prefix in `rule` (`` let rule = `@stylistic/indentation` ``). A file is a single call to `testRule()` from [utils/testRule.js](./utils/testRule.js):
 
 - one `code` string holding both valid and invalid CSS, commented or class-named to mark which is which;
-- `expectedWarnings` as a full deep-equal snapshot of stylelint's warning objects — `line`/`column`/`endLine`/`endColumn`, `text`, `severity`, and the literal `url: undefined, fix: undefined`. Because the assertion is `deepEqual`, every field must be present and exact, and line/column numbers shift whenever the `code` string is edited.
+- `expectedWarnings` as a full snapshot of stylelint's warning objects — `line`/`column`/`endLine`/`endColumn`, `text`, `severity`, and the literal `url: undefined, fix: undefined`. Because the assertion is `toStrictEqual`, every field must be present and exact, and line/column numbers shift whenever the `code` string is edited.
 
-The helper reads the rule's options out of `stylelint.config.js` by importing it, so a test asserts against the shipped configuration rather than a locally restated one. For a plugin rule, pass `plugin: { name, prefix }` and build `rule` as `` `${plugin.prefix}rule-name` ``.
-
-Known gap: `testRule()` constructs `{ plugins, rules: { [rule]: … } }` and drops the config's top-level `languageOptions.directionality`. The three `*-layout-mappings` tests therefore assert warning text that the real shipped config never produces. Keep this in mind before trusting those expectations or extending the helper.
+The helper builds the config for the run out of the shipped one — its `languageOptions`, its `plugins`, and the options it gives that one rule — so a test asserts against the configuration users get rather than a locally restated one. It throws if `rule` is not a key of `config.rules`, and checks `parseErrors` and `invalidOptionWarnings` before the warnings, so a mistyped rule name or an option stylelint rejects says so instead of showing up as a puzzling diff.
 
 ## Adding or changing a rule
 

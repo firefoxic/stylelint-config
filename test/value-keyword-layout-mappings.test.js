@@ -40,7 +40,7 @@ testRule({
 			fix: undefined,
 			rule,
 			severity: `error`,
-			text: `Disallowed physical keyword "left" (${rule})`,
+			text: `Expected "left" to be "start" (${rule})`,
 			url: undefined,
 		},
 		{
@@ -51,7 +51,7 @@ testRule({
 			fix: undefined,
 			rule,
 			severity: `error`,
-			text: `Disallowed physical keyword "right" (${rule})`,
+			text: `Expected "right" to be "end" (${rule})`,
 			url: undefined,
 		},
 		{
@@ -62,7 +62,7 @@ testRule({
 			fix: undefined,
 			rule,
 			severity: `error`,
-			text: `Disallowed physical keyword "left" (${rule})`,
+			text: `Expected "left" to be "inline-start" (${rule})`,
 			url: undefined,
 		},
 		{
@@ -73,7 +73,7 @@ testRule({
 			fix: undefined,
 			rule,
 			severity: `error`,
-			text: `Disallowed physical keyword "right" (${rule})`,
+			text: `Expected "right" to be "inline-end" (${rule})`,
 			url: undefined,
 		},
 		{
@@ -84,7 +84,7 @@ testRule({
 			fix: undefined,
 			rule,
 			severity: `error`,
-			text: `Disallowed physical keyword "horizontal" (${rule})`,
+			text: `Expected "horizontal" to be "inline" (${rule})`,
 			url: undefined,
 		},
 		{
@@ -95,7 +95,7 @@ testRule({
 			fix: undefined,
 			rule,
 			severity: `error`,
-			text: `Disallowed physical keyword "bottom" (${rule})`,
+			text: `Expected "bottom" to be "block-end" (${rule})`,
 			url: undefined,
 		},
 		{
@@ -106,7 +106,7 @@ testRule({
 			fix: undefined,
 			rule,
 			severity: `error`,
-			text: `Disallowed physical keyword "left" (${rule})`,
+			text: `Expected "left" to be "inline-start" (${rule})`,
 			url: undefined,
 		},
 		{
@@ -117,7 +117,7 @@ testRule({
 			fix: undefined,
 			rule,
 			severity: `error`,
-			text: `Disallowed physical keyword "top" (${rule})`,
+			text: `Expected "top" to be "block-start" (${rule})`,
 			url: undefined,
 		},
 		{
@@ -128,7 +128,7 @@ testRule({
 			fix: undefined,
 			rule,
 			severity: `error`,
-			text: `Disallowed physical keyword "right" (${rule})`,
+			text: `Expected "right" to be "inline-end" (${rule})`,
 			url: undefined,
 		},
 	],

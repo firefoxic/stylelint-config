@@ -1,11 +1,6 @@
 import { testRule } from "../../utils/testRule.js"
 
-let plugin = {
-	name: `@stylistic/stylelint-plugin`,
-	prefix: `@stylistic/`,
-}
-
-let rule = `${plugin.prefix}declaration-colon-newline-after`
+let rule = `@stylistic/declaration-colon-newline-after`
 
 let code = `
 .valid {
@@ -32,7 +27,6 @@ let code = `
 testRule({
 	description: `Multiline declarations should include a new line after a colon`,
 	rule,
-	plugin,
 	code,
 	expectedWarnings: [
 		{

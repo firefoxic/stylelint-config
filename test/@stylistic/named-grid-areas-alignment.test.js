@@ -1,11 +1,6 @@
 import { testRule } from "../../utils/testRule.js"
 
-let plugin = {
-	name: `@stylistic/stylelint-plugin`,
-	prefix: `@stylistic/`,
-}
-
-let rule = `${plugin.prefix}named-grid-areas-alignment`
+let rule = `@stylistic/named-grid-areas-alignment`
 
 let code = `
 .valid {
@@ -54,7 +49,6 @@ let code = `
 testRule({
 	description: `Grid template areas should be aligned`,
 	rule,
-	plugin,
 	code,
 	expectedWarnings: [
 		{
