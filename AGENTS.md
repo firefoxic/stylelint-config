@@ -30,6 +30,8 @@ Each rule the config enables gets one `<rule-name>.test.js` under [test/](./test
 
 The helper builds the config for the run out of the shipped one — its `languageOptions`, its `plugins`, and the options it gives that one rule — so a test asserts against the configuration users get rather than a locally restated one. It throws if `rule` is not a key of `config.rules`, and checks `parseErrors` and `invalidOptionWarnings` before the warnings, so a mistyped rule name or an option stylelint rejects says so instead of showing up as a puzzling diff.
 
+[test/config.test.js](./test/config.test.js) tests the config as a whole, which the one-rule harness cannot see: the canonical stylesheet lints clean under all of it (this is what catches a rule upstream renamed, deprecated or given a stricter option schema — and rules that contradict each other), the same stylesheet is a `--fix` fixed point, and a file snapshot records the shipped rule set so nothing changes it silently. One test there is marked `it.fails`: on a messy stylesheet `--fix` needs a second pass, which is a bug in `@stylistic/stylelint-plugin`, fixed in its upcoming 6.0.0 — when that lands the test passes, Vitest reports the pass as a failure, and the mark comes off.
+
 ## Adding or changing a rule
 
 1. Edit `stylelint.config.js`. Rules are grouped in three blocks, alphabetical within each: core stylelint rules, then `gamut/*`, then `@stylistic/*`.
