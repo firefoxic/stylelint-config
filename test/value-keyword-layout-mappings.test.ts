@@ -1,0 +1,135 @@
+import { testRule } from "../utils/testRule.ts"
+
+let rule = `value-keyword-layout-mappings`
+
+let code = `
+.valid {
+	text-align: start;
+	text-align-last: end;
+	float: inline-start;
+	clear: inline-end;
+	resize: inline;
+	caption-side: top;
+	box-orient: inline-axis;
+	offset-anchor: block-end inline-start;
+	offset-position: block-start inline-end;
+}
+
+.invalid {
+  text-align: left;
+  text-align-last: right;
+  float: left;
+  clear: right;
+  resize: horizontal;
+  box-orient: vertical;
+  offset-anchor: bottom left;
+  offset-position: top right;
+}
+`
+
+testRule({
+	description: `Properties and values must be logical`,
+	rule,
+	code,
+	expectedWarnings: [
+		{
+			line: 15,
+			column: 15,
+			endLine: 15,
+			endColumn: 19,
+			fix: undefined,
+			rule,
+			severity: `error`,
+			text: `Expected "left" to be "start" (${rule})`,
+			url: undefined,
+		},
+		{
+			line: 16,
+			column: 20,
+			endLine: 16,
+			endColumn: 25,
+			fix: undefined,
+			rule,
+			severity: `error`,
+			text: `Expected "right" to be "end" (${rule})`,
+			url: undefined,
+		},
+		{
+			line: 17,
+			column: 10,
+			endLine: 17,
+			endColumn: 14,
+			fix: undefined,
+			rule,
+			severity: `error`,
+			text: `Expected "left" to be "inline-start" (${rule})`,
+			url: undefined,
+		},
+		{
+			line: 18,
+			column: 10,
+			endLine: 18,
+			endColumn: 15,
+			fix: undefined,
+			rule,
+			severity: `error`,
+			text: `Expected "right" to be "inline-end" (${rule})`,
+			url: undefined,
+		},
+		{
+			line: 19,
+			column: 11,
+			endLine: 19,
+			endColumn: 21,
+			fix: undefined,
+			rule,
+			severity: `error`,
+			text: `Expected "horizontal" to be "inline" (${rule})`,
+			url: undefined,
+		},
+		{
+			line: 21,
+			column: 18,
+			endLine: 21,
+			endColumn: 24,
+			fix: undefined,
+			rule,
+			severity: `error`,
+			text: `Expected "bottom" to be "block-end" (${rule})`,
+			url: undefined,
+		},
+		{
+			line: 21,
+			column: 25,
+			endLine: 21,
+			endColumn: 29,
+			fix: undefined,
+			rule,
+			severity: `error`,
+			text: `Expected "left" to be "inline-start" (${rule})`,
+			url: undefined,
+		},
+		{
+			line: 22,
+			column: 20,
+			endLine: 22,
+			endColumn: 23,
+			fix: undefined,
+			rule,
+			severity: `error`,
+			text: `Expected "top" to be "block-start" (${rule})`,
+			url: undefined,
+		},
+		{
+			line: 22,
+			column: 24,
+			endLine: 22,
+			endColumn: 29,
+			fix: undefined,
+			rule,
+			severity: `error`,
+			text: `Expected "right" to be "inline-end" (${rule})`,
+			url: undefined,
+		},
+	],
+})

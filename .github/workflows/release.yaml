@@ -22,6 +22,7 @@ jobs:
           fetch-depth: 0
       - uses: pnpm/action-setup@v6
       - run: pnpm ci
+      - run: make verify
       - run: pnpm dlx @firefoxic/release-it
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

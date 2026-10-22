@@ -16,6 +16,15 @@ fix: ## 🩹 Fix code by oxlint
 	@oxlint --fix
 .PHONY: fix
 
+typecheck: ## 🧠 Check TypeScript types
+	@tsc --noEmit
+.PHONY: typecheck
+
+build: ## 📦 Build the published config
+	@rm -rf dist
+	@tsc --project tsconfig.build.json
+.PHONY: build
+
 test: ## 🧪 Run tests
 	@vitest
 .PHONY: test
@@ -24,7 +33,7 @@ test-watch: ## 👀 Run tests, and rerun them on every change
 	@vitest --watch
 .PHONY: test-watch
 
-verify: lint test ## ✅ Run every check
+verify: lint test typecheck build ## ✅ Run every check
 .PHONY: verify
 
 ANSI_RESET := \033[0m

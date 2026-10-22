@@ -6,7 +6,7 @@
 
 Shared config for stylelint by [firefoxic](https://firefoxic.dev).
 
-To see the rules that this config uses, please read the [config itself](./stylelint.config.js).
+To see the rules that this config uses, please read the [config itself](./stylelint.config.ts).
 
 ## Installation
 

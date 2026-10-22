@@ -16,9 +16,16 @@
 		"url": "git+https://github.com/firefoxic/stylelint-config.git"
 	},
 	"type": "module",
-	"exports": "./stylelint.config.js",
+	"types": "./dist/stylelint.config.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/stylelint.config.d.ts",
+			"default": "./dist/stylelint.config.js"
+		},
+		"./package.json": "./package.json"
+	},
 	"files": [
-		"./stylelint.config.js"
+		"./dist"
 	],
 	"peerDependencies": {
 		"stylelint": "^17.14.0"
@@ -28,13 +35,18 @@
 		"stylelint-gamut": "^2.0.1"
 	},
 	"scripts": {
+		"build": "tsc --project tsconfig.build.json",
 		"help": "make help",
-		"prepare": "git config --local core.hooksPath .githooks || true"
+		"prepack": "pnpm build",
+		"prepare": "git config --local core.hooksPath .githooks || true",
+		"typecheck": "tsc --noEmit"
 	},
 	"devDependencies": {
 		"@firefoxic/oxlint-config": "~0.5",
+		"@types/node": "^26",
 		"oxlint": "^1",
 		"stylelint": "^17",
+		"typescript": "^7",
 		"vitest": "^5"
 	},
 	"devEngines": {
