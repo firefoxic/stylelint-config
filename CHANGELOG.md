@@ -7,6 +7,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and 
 
 ## [Unreleased]
 
+## [10.0.0-next.0] — 2026–10–22
+
 ### Changed
 
 - The config now requires `stylelint` version `18.0.0` or higher.
@@ -134,7 +136,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and 
 
 - Base config for `stylelint`.
 
-[Unreleased]: https://github.com/firefoxic/stylelint-config/compare/v9.0.0...HEAD
+[Unreleased]: https://github.com/firefoxic/stylelint-config/compare/v10.0.0-next.0...HEAD
+[10.0.0-next.0]: https://github.com/firefoxic/stylelint-config/compare/v9.0.0...v10.0.0-next.0
 [9.0.0]: https://github.com/firefoxic/stylelint-config/compare/v8.0.1...v9.0.0
 [8.0.1]: https://github.com/firefoxic/stylelint-config/compare/v8.0.0...v8.0.1
 [8.0.0]: https://github.com/firefoxic/stylelint-config/compare/v7.0.0...v8.0.0
