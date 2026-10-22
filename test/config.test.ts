@@ -4,8 +4,7 @@ import { describe, expect, it } from "vitest"
 import config from "../stylelint.config.ts"
 
 /** A stylesheet that touches every opinion the config holds, spelled the way the config wants it. */
-const CANONICAL = `
-@import "./reset.css";
+const CANONICAL = `@import "./reset.css";
 
 @custom-media --wide (width >= 60em);
 
@@ -83,11 +82,7 @@ describe(`the shipped config`, () => {
 	})
 
 	for (let [name, input] of Object.entries(SAMPLES)) {
-		// The mark comes off when the fixer converges: `@stylistic/indentation` reaches its fixed
-		// point only on a second pass, and the rules of `@stylistic/stylelint-plugin` learn to read
-		// each other's settings in 6.0.0. Marked this way on purpose — once the plugin lands the
-		// fix, this test starts passing, and Vitest reports a passing `.fails` test as a failure.
-		it.fails(`reaches a fixed point in one pass: ${name}`, async () => {
+		it(`reaches a fixed point in one pass: ${name}`, async () => {
 			let { code: once } = await stylelint.lint({ code: input, config, fix: true })
 			let { code: twice } = await stylelint.lint({ code: once, config, fix: true })
 

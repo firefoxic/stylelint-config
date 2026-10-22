@@ -1,4 +1,8 @@
 gitChecks: false
 
+minimumReleaseAgeExclude:
+  - '@stylistic/*'
+  - stylelint
+
 registries:
   default: https://registry.npmjs.org/

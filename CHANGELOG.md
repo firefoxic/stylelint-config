@@ -7,6 +7,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and 
 
 ## [Unreleased]
 
+### Changed
+
+- The config now requires `stylelint` version `18.0.0` or higher.
+
 ### Added
 
 - The package now ships a type declaration for its exported config, so TypeScript consumers importing it receive its inferred type instead of `any`.
