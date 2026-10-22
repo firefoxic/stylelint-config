@@ -1,4 +1,8 @@
 gitChecks: false
 
+minimumReleaseAgeExclude:
+  - '@stylistic/stylelint-plugin@6.0.0-next.0'
+  - stylelint@18.0.0-next.0
+
 registries:
   default: https://registry.npmjs.org/
