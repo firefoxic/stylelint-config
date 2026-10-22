@@ -4,7 +4,7 @@ This file provides guidance to coding agents when working with code in this 
 
 ## What this repository is
 
-A single shareable stylelint config published as `@firefoxic/stylelint-config`. There is no build step and no source directory: [stylelint.config.js](./stylelint.config.js) is both the source and the published artifact — it is the sole entry in `exports` and the sole entry in `files`. Everything else in the repo exists to test and release that one file.
+A single shareable stylelint config published as `@firefoxic/stylelint-config`. [stylelint.config.ts](./stylelint.config.ts) is the source; TypeScript emits the published `dist/stylelint.config.js` and `dist/stylelint.config.d.ts`. The package exports both runtime and type entries, as well as `package.json`.
 
 `stylelint` itself is a peer dependency; the two rule plugins the config turns on (`@stylistic/stylelint-plugin`, `stylelint-gamut`) are real dependencies, because consumers get them transitively by extending this config.
 
@@ -12,10 +12,10 @@ A single shareable stylelint config published as `@firefoxic/stylelint-config`. 
 
 Tooling runs through `make`; the Makefile puts `node_modules/.bin` on `PATH` and is the source of truth for dev commands, so read it rather than relying on a list here (`make help` prints the targets). Package manager is pnpm, runtime — node, both auto-downloaded via `devEngines` on failure.
 
-The runner is Vitest, configured in [vitest.config.js](./vitest.config.js): `include` names `test/**/*.test.js`, because the files are named after the rules rather than by Vitest's default pattern, and `isolate: false` keeps the whole suite in one warm process. `make test-watch` reruns on change; a single file or a single name:
+The runner is Vitest, configured in [vitest.config.ts](./vitest.config.ts): `include` names `test/**/*.test.ts`, because the files are named after the rules rather than by Vitest's default pattern, and `isolate: false` keeps the whole suite in one warm process. `make test-watch` reruns on change; a single file or a single name:
 
 ```shell
-pnpm exec vitest run test/color-no-hex.test.js
+pnpm exec vitest run test/color-no-hex.test.ts
 pnpm exec vitest run --testNamePattern="hex"
 ```
 
@@ -23,18 +23,18 @@ pnpm exec vitest run --testNamePattern="hex"
 
 ## How the tests work
 
-Each rule the config enables gets one `<rule-name>.test.js` under [test/](./test/); plugin rules live in a directory named after the plugin (`test/gamut/`, `test/@stylistic/`) and spell the prefix in `rule` (`` let rule = `@stylistic/indentation` ``). A file is a single call to `testRule()` from [utils/testRule.js](./utils/testRule.js):
+Each rule the config enables gets one `<rule-name>.test.ts` under [test/](./test/); plugin rules live in a directory named after the plugin (`test/gamut/`, `test/@stylistic/`) and spell the prefix in `rule` (`` let rule = `@stylistic/indentation` ``). A file is a single call to `testRule()` from [utils/testRule.ts](./utils/testRule.ts):
 
 - one `code` string holding both valid and invalid CSS, commented or class-named to mark which is which;
 - `expectedWarnings` as a full snapshot of stylelint's warning objects — `line`/`column`/`endLine`/`endColumn`, `text`, `severity`, and the literal `url: undefined, fix: undefined`. Because the assertion is `toStrictEqual`, every field must be present and exact, and line/column numbers shift whenever the `code` string is edited.
 
 The helper builds the config for the run out of the shipped one — its `languageOptions`, its `plugins`, and the options it gives that one rule — so a test asserts against the configuration users get rather than a locally restated one. It throws if `rule` is not a key of `config.rules`, and checks `parseErrors` and `invalidOptionWarnings` before the warnings, so a mistyped rule name or an option stylelint rejects says so instead of showing up as a puzzling diff.
 
-[test/config.test.js](./test/config.test.js) tests the config as a whole, which the one-rule harness cannot see: the canonical stylesheet lints clean under all of it (this is what catches a rule upstream renamed, deprecated or given a stricter option schema — and rules that contradict each other), the same stylesheet is a `--fix` fixed point, and a file snapshot records the shipped rule set so nothing changes it silently. One test there is marked `it.fails`: on a messy stylesheet `--fix` needs a second pass, which is a bug in `@stylistic/stylelint-plugin`, fixed in its upcoming 6.0.0 — when that lands the test passes, Vitest reports the pass as a failure, and the mark comes off.
+[test/config.test.ts](./test/config.test.ts) tests the config as a whole, which the one-rule harness cannot see: the canonical stylesheet lints clean under all of it (this is what catches a rule upstream renamed, deprecated or given a stricter option schema — and rules that contradict each other), the same stylesheet is a `--fix` fixed point, and a file snapshot records the shipped rule set so nothing changes it silently. One test there is marked `it.fails`: on a messy stylesheet `--fix` needs a second pass, which is a bug in `@stylistic/stylelint-plugin`, fixed in its upcoming 6.0.0 — when that lands the test passes, Vitest reports the pass as a failure, and the mark comes off.
 
 ## Adding or changing a rule
 
-1. Edit `stylelint.config.js`. Rules are grouped in three blocks, alphabetical within each: core stylelint rules, then `gamut/*`, then `@stylistic/*`.
+1. Edit `stylelint.config.ts`. Rules are grouped in three blocks, alphabetical within each: core stylelint rules, then `gamut/*`, then `@stylistic/*`.
 2. Add or update the matching file in `test/`.
 3. `make verify`.
 

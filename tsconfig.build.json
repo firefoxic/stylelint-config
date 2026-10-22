@@ -1,0 +1,15 @@
+{
+	"compilerOptions": {
+		"declaration": true,
+		"noEmit": false,
+		"outDir": "dist",
+		"rootDir": ".",
+		"types": [
+			"node"
+		]
+	},
+	"files": [
+		"stylelint.config.ts"
+	],
+	"include": []
+}

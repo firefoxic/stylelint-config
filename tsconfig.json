@@ -1,0 +1,19 @@
+{
+	"compilerOptions": {
+		"esModuleInterop": true,
+		"module": "nodenext",
+		"noEmit": true,
+		"rewriteRelativeImportExtensions": true,
+		"types": [
+			"vitest/globals",
+		],
+		"verbatimModuleSyntax": true,
+	},
+	"include": [
+		"**/*",
+	],
+	"exclude": [
+		"dist",
+		"tmp",
+	],
+}
