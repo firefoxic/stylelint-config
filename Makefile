@@ -9,28 +9,28 @@ help: ## 🧾 Print this message
 .PHONY: help
 
 lint: ## 🧬 Check code by oxlint
-	@oxlint
+	oxlint
 .PHONY: lint
 
 fix: ## 🩹 Fix code by oxlint
-	@oxlint --fix
+	oxlint --fix
 .PHONY: fix
 
 typecheck: ## 🧠 Check TypeScript types
-	@tsrs
+	tsrs
 .PHONY: typecheck
 
 build: ## 📦 Build the published config
-	@rm -rf dist
-	@tsrs -p tsconfig.build.json
+	rm -rf dist
+	tsrs -p tsconfig.build.json
 .PHONY: build
 
 test: ## 🧪 Run tests
-	@vitest
+	vitest
 .PHONY: test
 
 test-watch: ## 👀 Run tests, and rerun them on every change
-	@vitest --watch
+	vitest --watch
 .PHONY: test-watch
 
 verify: lint test typecheck build ## ✅ Run every check
@@ -42,7 +42,7 @@ ANSI_BOLD_CYAN := \033[1;36m
 
 define print_help
 	@printf "\n\t📜 $(ANSI_BOLD)Available targets:$(ANSI_RESET)\n\n"
-	@grep -E '^[a-zA-Z0-9_-]+:.*?## ' $(MAKEFILE_LIST) \
+	grep -E '^[a-zA-Z0-9_-]+:.*?## ' $(MAKEFILE_LIST) \
 	| awk -F ':|##' '\
 	BEGIN { \
 		ANSI_BOLD_CYAN = "$(ANSI_BOLD_CYAN)"; \
