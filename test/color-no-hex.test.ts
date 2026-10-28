@@ -7,22 +7,20 @@ testRule({
 	rule,
 	cases: [
 		{
-			description: `accepts non-hex colors`,
-			code: `
-				a { color: black; }
-				a { color: rgb(0 0 0) }
-				a { color: rgb(0 0 0 / 0) }
-			`,
+			description: `accepts named colors`,
+			code: `a { color: black; }`,
 		},
 		{
-			description: `rejects hex colors`,
-			code: `
-				a { color: #000 }
-				a { color: #fff1aa }
-				a { color: #123456aa }
-				a { color: #foobar }
-				a { color: #0000000000000000 }
-			`,
+			description: `accepts rgb() colors`,
+			code: `a { color: rgb(0 0 0) }`,
+		},
+		{
+			description: `accepts rgb() colors with alpha`,
+			code: `a { color: rgb(0 0 0 / 0) }`,
+		},
+		{
+			description: `rejects short hex colors`,
+			code: `a { color: #000 }`,
 			expectedWarnings: [
 				{
 					line: 2,
@@ -35,10 +33,16 @@ testRule({
 					severity: `error`,
 					text: `Disallowed hex color "#000" (${rule})`,
 				},
+			],
+		},
+		{
+			description: `rejects six-digit hex colors`,
+			code: `a { color: #fff1aa }`,
+			expectedWarnings: [
 				{
-					line: 3,
+					line: 2,
 					column: 12,
-					endLine: 3,
+					endLine: 2,
 					endColumn: 19,
 					rule,
 					url: undefined,
@@ -46,10 +50,16 @@ testRule({
 					severity: `error`,
 					text: `Disallowed hex color "#fff1aa" (${rule})`,
 				},
+			],
+		},
+		{
+			description: `rejects eight-digit hex colors`,
+			code: `a { color: #123456aa }`,
+			expectedWarnings: [
 				{
-					line: 4,
+					line: 2,
 					column: 12,
-					endLine: 4,
+					endLine: 2,
 					endColumn: 21,
 					rule,
 					url: undefined,
@@ -57,10 +67,16 @@ testRule({
 					severity: `error`,
 					text: `Disallowed hex color "#123456aa" (${rule})`,
 				},
+			],
+		},
+		{
+			description: `rejects invalid hex colors`,
+			code: `a { color: #foobar }`,
+			expectedWarnings: [
 				{
-					line: 5,
+					line: 2,
 					column: 12,
-					endLine: 5,
+					endLine: 2,
 					endColumn: 19,
 					rule,
 					url: undefined,
@@ -68,10 +84,16 @@ testRule({
 					severity: `error`,
 					text: `Disallowed hex color "#foobar" (${rule})`,
 				},
+			],
+		},
+		{
+			description: `rejects sixteen-digit hex colors`,
+			code: `a { color: #0000000000000000 }`,
+			expectedWarnings: [
 				{
-					line: 6,
+					line: 2,
 					column: 12,
-					endLine: 6,
+					endLine: 2,
 					endColumn: 29,
 					rule,
 					url: undefined,

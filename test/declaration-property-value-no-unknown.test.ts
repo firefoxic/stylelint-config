@@ -3,51 +3,60 @@ import { testRule } from "../utils/testRule.ts"
 let rule = `declaration-property-value-no-unknown`
 
 testRule({
-	description: `The display property value must not be in legacy syntax`,
+	description: `Property values must be known`,
 	rule,
 	cases: [
 		{
-			description: `accepts known property values`,
-			code: `
-				.valid-1 { gap: 0 }
-				.valid-2 { gap: var(--foo) }
-			`,
+			description: `accepts a known value`,
+			code: `a { gap: 0 }`,
 		},
 		{
-			description: `rejects unknown property values`,
-			code: `
-				.invalid-1 { gap: red }
-				.invalid-2 { gap: unknown }
-				.invalid-3 { display: block table-row }
-			`,
+			description: `accepts a custom property value`,
+			code: `a { gap: var(--foo) }`,
+		},
+		{
+			description: `rejects a color as a gap value`,
+			code: `a { gap: red }`,
 			expectedWarnings: [
 				{
 					line: 2,
-					column: 19,
+					column: 10,
 					endLine: 2,
-					endColumn: 22,
+					endColumn: 13,
 					rule,
 					url: undefined,
 					fix: undefined,
 					severity: `error`,
 					text: `Unknown value "red" for property "gap" (${rule})`,
 				},
+			],
+		},
+		{
+			description: `rejects an unknown gap value`,
+			code: `a { gap: unknown }`,
+			expectedWarnings: [
 				{
-					line: 3,
-					column: 19,
-					endLine: 3,
-					endColumn: 26,
+					line: 2,
+					column: 10,
+					endLine: 2,
+					endColumn: 17,
 					rule,
 					url: undefined,
 					fix: undefined,
 					severity: `error`,
 					text: `Unknown value "unknown" for property "gap" (${rule})`,
 				},
+			],
+		},
+		{
+			description: `rejects a legacy display value`,
+			code: `a { display: block table-row }`,
+			expectedWarnings: [
 				{
-					line: 4,
-					column: 29,
-					endLine: 4,
-					endColumn: 38,
+					line: 2,
+					column: 20,
+					endLine: 2,
+					endColumn: 29,
 					rule,
 					url: undefined,
 					fix: undefined,

@@ -7,84 +7,90 @@ testRule({
 	rule,
 	cases: [
 		{
-			description: `accepts non-empty blocks and comment-only blocks`,
-			code: `
-				.valid-1 {
-					gap: 0;
-				}
-
-				.valid-2 {
-					/* foo */
-				}
-
-				@media print {
-					.valid-1 {
-						gap: 0;
-					}
-
-					.valid-2 {
-						/* bar */
-					}
-				}
-			`,
+			description: `accepts a block with declarations`,
+			code: `a { gap: 0; }`,
 		},
 		{
-			description: `rejects empty blocks`,
+			description: `accepts a comment-only block`,
+			code: `a { /* foo */ }`,
+		},
+		{
+			description: `accepts a nested block with declarations`,
+			code: `@media print { a { gap: 0; } }`,
+		},
+		{
+			description: `accepts a nested comment-only block`,
+			code: `@media print { a { /* bar */ } }`,
+		},
+		{
+			description: `rejects an empty block`,
+			code: `a {}`,
+			expectedWarnings: [
+				{
+					line: 2,
+					column: 3,
+					endLine: 2,
+					endColumn: 5,
+					rule,
+					url: undefined,
+					fix: undefined,
+					severity: `error`,
+					text: `Empty block (${rule})`,
+				},
+			],
+		},
+		{
+			description: `rejects an empty block with a blank line`,
 			code: `
-				.invalid-1 {
-				}
-
-				.invalid-2 {
+				a {
 
 				}
-
+			`,
+			expectedWarnings: [
+				{
+					line: 2,
+					column: 3,
+					endLine: 4,
+					endColumn: 2,
+					rule,
+					url: undefined,
+					fix: undefined,
+					severity: `error`,
+					text: `Empty block (${rule})`,
+				},
+			],
+		},
+		{
+			description: `rejects an empty nested block`,
+			code: `@media print { a {} }`,
+			expectedWarnings: [
+				{
+					line: 2,
+					column: 18,
+					endLine: 2,
+					endColumn: 20,
+					rule,
+					url: undefined,
+					fix: undefined,
+					severity: `error`,
+					text: `Empty block (${rule})`,
+				},
+			],
+		},
+		{
+			description: `rejects an empty nested block with a blank line`,
+			code: `
 				@media print {
-					.invalid-1 {
-					}
-
-					.invalid-2 {
+					a {
 
 					}
 				}
 			`,
 			expectedWarnings: [
 				{
-					line: 2,
-					column: 12,
-					endLine: 3,
-					endColumn: 2,
-					rule,
-					url: undefined,
-					fix: undefined,
-					severity: `error`,
-					text: `Empty block (${rule})`,
-				},
-				{
-					line: 5,
-					column: 12,
-					endLine: 7,
-					endColumn: 2,
-					rule,
-					url: undefined,
-					fix: undefined,
-					severity: `error`,
-					text: `Empty block (${rule})`,
-				},
-				{
-					line: 10,
-					column: 13,
-					endLine: 11,
-					endColumn: 3,
-					rule,
-					url: undefined,
-					fix: undefined,
-					severity: `error`,
-					text: `Empty block (${rule})`,
-				},
-				{
-					line: 13,
-					column: 13,
-					endLine: 15,
+					line: 3,
+					column: 4,
+					endLine: 5,
 					endColumn: 3,
 					rule,
 					url: undefined,

@@ -7,24 +7,28 @@ testRule({
 	rule,
 	cases: [
 		{
-			description: `accepts standard gradient directions`,
-			code: `
-				a { background: linear-gradient(to top, #fff, #000) }
-				a { background: linear-gradient(to bottom right, #fff, #000) }
-				a { background: linear-gradient(45deg, #fff, #000) }
-				a { background: linear-gradient(1.57rad, #fff, #000) }
-				a { background: linear-gradient(#fff, #000) } /* Direction defaults to "to bottom" */
-			`,
+			description: `accepts "to top"`,
+			code: `a { background: linear-gradient(to top, #fff, #000) }`,
 		},
 		{
-			description: `rejects nonstandard gradient directions`,
-			code: `
-				a { background: linear-gradient(top, #fff, #000) }
-				a { background: linear-gradient(bottom, #fff, #000) }
-				a { background: linear-gradient(left, #fff, #000) }
-				a { background: linear-gradient(45, #fff, #000) }
-				a { background: linear-gradient(to top top, #fff, #000) }
-			`,
+			description: `accepts "to bottom right"`,
+			code: `a { background: linear-gradient(to bottom right, #fff, #000) }`,
+		},
+		{
+			description: `accepts angle directions in degrees`,
+			code: `a { background: linear-gradient(45deg, #fff, #000) }`,
+		},
+		{
+			description: `accepts angle directions in radians`,
+			code: `a { background: linear-gradient(1.57rad, #fff, #000) }`,
+		},
+		{
+			description: `accepts the default direction`,
+			code: `a { background: linear-gradient(#fff, #000) }`,
+		},
+		{
+			description: `rejects "top"`,
+			code: `a { background: linear-gradient(top, #fff, #000) }`,
 			expectedWarnings: [
 				{
 					line: 2,
@@ -37,10 +41,16 @@ testRule({
 					text: `Nonstandard direction (${rule})`,
 					url: undefined,
 				},
+			],
+		},
+		{
+			description: `rejects "bottom"`,
+			code: `a { background: linear-gradient(bottom, #fff, #000) }`,
+			expectedWarnings: [
 				{
-					line: 3,
+					line: 2,
 					column: 33,
-					endLine: 3,
+					endLine: 2,
 					endColumn: 39,
 					fix: undefined,
 					rule,
@@ -48,10 +58,16 @@ testRule({
 					text: `Nonstandard direction (${rule})`,
 					url: undefined,
 				},
+			],
+		},
+		{
+			description: `rejects "left"`,
+			code: `a { background: linear-gradient(left, #fff, #000) }`,
+			expectedWarnings: [
 				{
-					line: 4,
+					line: 2,
 					column: 33,
-					endLine: 4,
+					endLine: 2,
 					endColumn: 37,
 					fix: undefined,
 					rule,
@@ -59,10 +75,16 @@ testRule({
 					text: `Nonstandard direction (${rule})`,
 					url: undefined,
 				},
+			],
+		},
+		{
+			description: `rejects unitless angle directions`,
+			code: `a { background: linear-gradient(45, #fff, #000) }`,
+			expectedWarnings: [
 				{
-					line: 5,
+					line: 2,
 					column: 33,
-					endLine: 5,
+					endLine: 2,
 					endColumn: 35,
 					fix: undefined,
 					rule,
@@ -70,10 +92,16 @@ testRule({
 					text: `Nonstandard direction (${rule})`,
 					url: undefined,
 				},
+			],
+		},
+		{
+			description: `rejects duplicate "top" direction keywords`,
+			code: `a { background: linear-gradient(to top top, #fff, #000) }`,
+			expectedWarnings: [
 				{
-					line: 6,
+					line: 2,
 					column: 33,
-					endLine: 6,
+					endLine: 2,
 					endColumn: 43,
 					fix: undefined,
 					rule,

@@ -7,62 +7,85 @@ testRule({
 	rule,
 	cases: [
 		{
-			description: `accepts at-rules with the expected spacing`,
+			description: `accepts a charset at-rule`,
+			code: `@charset "UTF-8";`,
+		},
+		{
+			description: `accepts consecutive imports and imports following comments`,
 			code: `
-				@charset "UTF-8";
-
 				@import "a.css"; /* Shared-line comments do not affect. */
 				@import "b.css";
 				/* Ignore at-rules that follow a comment. */
 				@import "c.css";
 				@import "d.css";
-
+			`,
+		},
+		{
+			description: `accepts a media query with a root rule`,
+			code: `
 				@media (prefers-color-scheme: dark) {
 					:root {
 						--a: 0;
 					}
 				}
-
-				.valid-1 {
+			`,
+		},
+		{
+			description: `accepts a nested at-rule after a declaration`,
+			code: `
+				a {
 					top: 0;
 
 					@layer layaut;
 				}
-
+			`,
+		},
+		{
+			description: `accepts a media query containing a rule`,
+			code: `
 				@media all {
-					.valid-1 {
+					a {
 						gap: 0;
 					}
 				}
-
+			`,
+		},
+		{
+			description: `accepts the first nested at-rule without a preceding empty line`,
+			code: `
 				@layer foo {
-					@layer bar; /* Ignore first nested at-rules. */
+					@layer bar;
+				}
+			`,
+		},
+		{
+			description: `accepts a nested at-rule after another nested at-rule`,
+			code: `
+				@layer foo {
+					@layer bar;
 					@layer baz;
+				}
+			`,
+		},
+		{
+			description: `accepts a nested block at-rule after an empty line`,
+			code: `
+				@layer foo {
+					@layer bar;
 
-					@layer bar {
-						.valid {
+					@layer baz {
+						a {
 							gap: 0;
 						}
 					}
 				}
-
 			`,
 		},
 		{
-			description: `reports at-rules with incorrect spacing`,
+			description: `reports a missing empty line before @custom-media`,
 			code: `
 				@layer foo;
 				@custom-media --small-viewport (width > 600px);
-				@media (--small-viewport) {
-
-					@layer bar;
-					@layer bar {
-						.invalid {
-							top: 0;
-							@layer bar;
-						}
-					}
-				}
 			`,
 			expectedWarnings: [
 				{
@@ -76,10 +99,23 @@ testRule({
 					severity: `error`,
 					text: `Expected empty line before at-rule (${rule})`,
 				},
+			],
+		},
+		{
+			description: `reports a missing empty line before @media`,
+			code: `
+				@custom-media --small-viewport (width > 600px);
+				@media (--small-viewport) {
+					a {
+						gap: 0;
+					}
+				}
+			`,
+			expectedWarnings: [
 				{
-					line: 4,
+					line: 3,
 					column: 1,
-					endLine: 13,
+					endLine: 7,
 					endColumn: 2,
 					rule,
 					url: undefined,
@@ -87,10 +123,21 @@ testRule({
 					severity: `error`,
 					text: `Expected empty line before at-rule (${rule})`,
 				},
+			],
+		},
+		{
+			description: `reports an empty line before the first nested @layer`,
+			code: `
+				@media (--small-viewport) {
+
+					@layer bar;
+				}
+			`,
+			expectedWarnings: [
 				{
-					line: 6,
+					line: 4,
 					column: 2,
-					endLine: 6,
+					endLine: 4,
 					endColumn: 13,
 					rule,
 					url: undefined,
@@ -98,10 +145,25 @@ testRule({
 					severity: `error`,
 					text: `Expected no empty line before at-rule (${rule})`,
 				},
+			],
+		},
+		{
+			description: `reports a missing empty line before a nested @layer block`,
+			code: `
+				@media (--small-viewport) {
+					@layer bar;
+					@layer bar {
+						a {
+							gap: 0;
+						}
+					}
+				}
+			`,
+			expectedWarnings: [
 				{
-					line: 7,
+					line: 4,
 					column: 2,
-					endLine: 12,
+					endLine: 8,
 					endColumn: 3,
 					rule,
 					url: undefined,
@@ -109,10 +171,25 @@ testRule({
 					severity: `error`,
 					text: `Expected empty line before at-rule (${rule})`,
 				},
+			],
+		},
+		{
+			description: `reports a missing empty line before a nested @layer declaration`,
+			code: `
+				@media (--small-viewport) {
+					@layer bar {
+						a {
+							top: 0;
+							@layer bar;
+						}
+					}
+				}
+			`,
+			expectedWarnings: [
 				{
-					line: 10,
+					line: 6,
 					column: 4,
-					endLine: 10,
+					endLine: 6,
 					endColumn: 15,
 					rule,
 					url: undefined,

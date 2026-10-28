@@ -7,30 +7,22 @@ testRule({
 	rule,
 	cases: [
 		{
-			description: `accepts font names with the expected quoting`,
-			code: `
-				.valid-1 {
-					font: 1em arial, sans-serif;
-				}
-
-				.valid-2 {
-					font-family: times new roman, times, serif;
-				}
-
-				.valid-3 {
-					font-family: "Hawaii 5-0";
-				}
-			`,
+			description: `accepts an unquoted font name that is a valid identifier`,
+			code: `a { font: 1em arial, sans-serif; }`,
 		},
 		{
-			description: `rejects quoted font names that are valid identifiers`,
+			description: `accepts a multi-word font name without quotes when it is a valid identifier sequence`,
+			code: `a { font-family: times new roman, times, serif; }`,
+		},
+		{
+			description: `accepts a quoted font name that is not a valid identifier`,
+			code: `a { font-family: "Hawaii 5-0"; }`,
+		},
+		{
+			description: `rejects quotes around a font name that is a valid identifier`,
 			code: `
-				.invalid-1 {
+				a {
 					font: 1em "Arial", sans-serif;
-				}
-
-				.invalid-2 {
-					font-family: "Times New Roman", Times, serif;
 				}
 			`,
 			expectedWarnings: [
@@ -45,10 +37,20 @@ testRule({
 					severity: `error`,
 					text: `Expected no quotes around "Arial" (${rule})`,
 				},
+			],
+		},
+		{
+			description: `rejects quotes around a multi-word font name`,
+			code: `
+				a {
+					font-family: "Times New Roman", Times, serif;
+				}
+			`,
+			expectedWarnings: [
 				{
-					line: 7,
+					line: 3,
 					column: 15,
-					endLine: 7,
+					endLine: 3,
 					endColumn: 32,
 					rule,
 					url: undefined,

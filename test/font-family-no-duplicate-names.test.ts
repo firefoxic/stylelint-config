@@ -7,30 +7,22 @@ testRule({
 	rule,
 	cases: [
 		{
-			description: `accepts font families without duplicate names`,
-			code: `
-				.valid {
-					font-family: vollkorn, serif;
-				}
-
-				.valid {
-					font-family: monospace, monospace;
-				}
-
-				.valid {
-					font-family: fira-code, monospace, monospace;
-				}
-			`,
+			description: `accepts a font family without duplicate names`,
+			code: `a { font-family: vollkorn, serif; }`,
 		},
 		{
-			description: `rejects duplicate font-family names`,
+			description: `accepts duplicate monospace keywords`,
+			code: `a { font-family: monospace, monospace; }`,
+		},
+		{
+			description: `accepts duplicate monospace keywords after another font name`,
+			code: `a { font-family: fira-code, monospace, monospace; }`,
+		},
+		{
+			description: `rejects a duplicate font-family name`,
 			code: `
-				.invalid {
+				a {
 					font-family: "Arial", Arial, sans-serif;
-				}
-
-				.invalid {
-					font: 1em system-ui, sans-serif, sans-serif;
 				}
 			`,
 			expectedWarnings: [
@@ -45,10 +37,20 @@ testRule({
 					severity: `error`,
 					text: `Duplicate font-family name "Arial" (${rule})`,
 				},
+			],
+		},
+		{
+			description: `rejects a duplicate generic family in a font shorthand`,
+			code: `
+				a {
+					font: 1em system-ui, sans-serif, sans-serif;
+				}
+			`,
+			expectedWarnings: [
 				{
-					line: 7,
+					line: 3,
 					column: 35,
-					endLine: 7,
+					endLine: 3,
 					endColumn: 45,
 					rule,
 					url: undefined,

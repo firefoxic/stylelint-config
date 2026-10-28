@@ -7,20 +7,16 @@ testRule({
 	rule,
 	cases: [
 		{
-			description: `accepts lowercase function names`,
-			code: `
-				a { width: calc(5% - 10em) }
-				a { background: -webkit-radial-gradient(red, green, blue) }
-			`,
+			description: `accepts "calc"`,
+			code: `a { width: calc(5% - 10em) }`,
 		},
 		{
-			description: `rejects uppercase function names`,
-			code: `
-				a { width: Calc(5% - 10em) }
-				a { width: cAlC(5% - 10em) }
-				a { width: CALC(5% - 10em) }
-				a { background: -WEBKIT-RADIAL-GRADIENT(red, green, blue) }
-			`,
+			description: `accepts prefixed lowercase function names`,
+			code: `a { background: -webkit-radial-gradient(red, green, blue) }`,
+		},
+		{
+			description: `rejects "Calc"`,
+			code: `a { width: Calc(5% - 10em) }`,
 			expectedWarnings: [
 				{
 					line: 2,
@@ -33,10 +29,16 @@ testRule({
 					text: `Expected "Calc" to be "calc" (${rule})`,
 					url: undefined,
 				},
+			],
+		},
+		{
+			description: `rejects mixed-case "cAlC"`,
+			code: `a { width: cAlC(5% - 10em) }`,
+			expectedWarnings: [
 				{
-					line: 3,
+					line: 2,
 					column: 12,
-					endLine: 3,
+					endLine: 2,
 					endColumn: 16,
 					fix: undefined,
 					rule,
@@ -44,10 +46,16 @@ testRule({
 					text: `Expected "cAlC" to be "calc" (${rule})`,
 					url: undefined,
 				},
+			],
+		},
+		{
+			description: `rejects uppercase "CALC"`,
+			code: `a { width: CALC(5% - 10em) }`,
+			expectedWarnings: [
 				{
-					line: 4,
+					line: 2,
 					column: 12,
-					endLine: 4,
+					endLine: 2,
 					endColumn: 16,
 					fix: undefined,
 					rule,
@@ -55,10 +63,16 @@ testRule({
 					text: `Expected "CALC" to be "calc" (${rule})`,
 					url: undefined,
 				},
+			],
+		},
+		{
+			description: `rejects uppercase prefixed function names`,
+			code: `a { background: -WEBKIT-RADIAL-GRADIENT(red, green, blue) }`,
+			expectedWarnings: [
 				{
-					line: 5,
+					line: 2,
 					column: 17,
-					endLine: 5,
+					endLine: 2,
 					endColumn: 40,
 					fix: undefined,
 					rule,

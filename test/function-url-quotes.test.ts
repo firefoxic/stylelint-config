@@ -7,19 +7,20 @@ testRule({
 	rule,
 	cases: [
 		{
-			description: `accepts quoted url() arguments`,
-			code: `
-				@import url("foo.css");
-				a { background: url('x.jpg') }
-				@font-face { font-family: foo; src: url("foo.ttf") }
-			`,
+			description: `accepts a quoted url() argument in an import`,
+			code: `@import url("foo.css");`,
 		},
 		{
-			description: `rejects unquoted url() arguments`,
-			code: `
-				@import url(foo.css);
-				@font-face { font-family: foo; src: url(foo.ttf) }
-			`,
+			description: `accepts a single-quoted url() argument in a declaration`,
+			code: `a { background: url('x.jpg') }`,
+		},
+		{
+			description: `accepts a quoted url() argument in a font-face declaration`,
+			code: `@font-face { font-family: foo; src: url("foo.ttf") }`,
+		},
+		{
+			description: `rejects an unquoted url() argument in an import`,
+			code: `@import url(foo.css);`,
 			expectedWarnings: [
 				{
 					line: 2,
@@ -32,10 +33,16 @@ testRule({
 					text: `Expected quotes around "url" function argument (${rule})`,
 					url: undefined,
 				},
+			],
+		},
+		{
+			description: `rejects an unquoted url() argument in a font-face declaration`,
+			code: `@font-face { font-family: foo; src: url(foo.ttf) }`,
+			expectedWarnings: [
 				{
-					line: 3,
+					line: 2,
 					column: 41,
-					endLine: 3,
+					endLine: 2,
 					endColumn: 48,
 					fix: undefined,
 					rule,

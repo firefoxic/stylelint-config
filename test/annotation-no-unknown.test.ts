@@ -7,27 +7,22 @@ testRule({
 	rule,
 	cases: [
 		{
-			description: `accepts known annotations`,
-			code: `
-				.valid {
-					top: 0;
-					gap: 0 !important;
-				}
-			`,
+			description: `accepts a known declaration`,
+			code: `a { gap: 0; }`,
+		},
+		{
+			description: `accepts !important`,
+			code: `a { gap: 0 !important; }`,
 		},
 		{
 			description: `rejects unknown annotations`,
-			code: `
-				.invalid {
-					gap: 0 !imprtant;
-				}
-			`,
+			code: `a { gap: 0 !imprtant; }`,
 			expectedWarnings: [
 				{
-					line: 3,
-					column: 9,
-					endLine: 3,
-					endColumn: 18,
+					line: 2,
+					column: 12,
+					endLine: 2,
+					endColumn: 21,
 					rule,
 					url: undefined,
 					fix: undefined,

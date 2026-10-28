@@ -13,12 +13,8 @@ testRule({
 			`,
 		},
 		{
-			description: `rejects !important in every spacing form`,
-			code: `
-				a { gap: 0 !important }
-				a { gap: 0 ! important }
-				a { gap: 0!important }
-			`,
+			description: `rejects !important`,
+			code: `a { gap: 0 !important }`,
 			expectedWarnings: [
 				{
 					line: 2,
@@ -31,10 +27,16 @@ testRule({
 					severity: `error`,
 					text: `Disallowed !important (${rule})`,
 				},
+			],
+		},
+		{
+			description: `rejects a spaced ! important`,
+			code: `a { gap: 0 ! important }`,
+			expectedWarnings: [
 				{
-					line: 3,
+					line: 2,
 					column: 12,
-					endLine: 3,
+					endLine: 2,
 					endColumn: 23,
 					rule,
 					url: undefined,
@@ -42,10 +44,16 @@ testRule({
 					severity: `error`,
 					text: `Disallowed !important (${rule})`,
 				},
+			],
+		},
+		{
+			description: `rejects !important without preceding whitespace`,
+			code: `a { gap: 0!important }`,
+			expectedWarnings: [
 				{
-					line: 4,
+					line: 2,
 					column: 11,
-					endLine: 4,
+					endLine: 2,
 					endColumn: 21,
 					rule,
 					url: undefined,

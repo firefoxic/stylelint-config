@@ -7,93 +7,144 @@ testRule({
 	rule,
 	cases: [
 		{
-			description: `accepts logical viewport units`,
-			code: `
-				.valid {
-					block-size: 100vb;
-					inline-size: 80vi;
-					max-block-size: 50cqb;
-					max-inline-size: 100cqi;
-					min-block-size: 100dvb;
-					inline-size: min(80vi, 100%);
-					inline-size: clamp(20vi, 50%, 80vi);
-				}
-			`,
+			description: `accepts "vb"`,
+			code: `a { block-size: 100vb; }`,
 		},
 		{
-			description: `rejects physical viewport units`,
-			code: `
-				.invalid {
-					height: 100vh;
-					width: 80vw;
-					max-height: 50cqh;
-					max-width: 100cqw;
-					min-height: 100dvh;
-					width: min(80vw, 100%);
-					width: clamp(20vw, 50%, 80vw);
-				}
-			`,
+			description: `accepts "vi"`,
+			code: `a { inline-size: 80vi; }`,
+		},
+		{
+			description: `accepts "cqb"`,
+			code: `a { max-block-size: 50cqb; }`,
+		},
+		{
+			description: `accepts "cqi"`,
+			code: `a { max-inline-size: 100cqi; }`,
+		},
+		{
+			description: `accepts "dvb"`,
+			code: `a { min-block-size: 100dvb; }`,
+		},
+		{
+			description: `accepts logical units in "min()"`,
+			code: `a { inline-size: min(80vi, 100%); }`,
+		},
+		{
+			description: `accepts logical units in "clamp()"`,
+			code: `a { inline-size: clamp(20vi, 50%, 80vi); }`,
+		},
+		{
+			description: `rejects "vh"`,
+			code: `a { height: 100vh; }`,
 			expectedWarnings: [
 				{
-					line: 3,
-					column: 13,
-					endLine: 3,
-					endColumn: 15,
+					line: 2,
+					column: 16,
+					endLine: 2,
+					endColumn: 18,
 					fix: undefined,
 					rule,
 					severity: `error`,
 					text: `Expected "vh" to be "vb" (${rule})`,
 					url: undefined,
 				},
+			],
+		},
+		{
+			description: `rejects "vw"`,
+			code: `a { width: 80vw; }`,
+			expectedWarnings: [
 				{
-					line: 4,
-					column: 11,
-					endLine: 4,
-					endColumn: 13,
+					line: 2,
+					column: 14,
+					endLine: 2,
+					endColumn: 16,
 					fix: undefined,
 					rule,
 					severity: `error`,
 					text: `Expected "vw" to be "vi" (${rule})`,
 					url: undefined,
 				},
+			],
+		},
+		{
+			description: `rejects "cqh"`,
+			code: `a { max-height: 50cqh; }`,
+			expectedWarnings: [
 				{
-					line: 5,
-					column: 16,
-					endLine: 5,
-					endColumn: 19,
+					line: 2,
+					column: 19,
+					endLine: 2,
+					endColumn: 22,
 					fix: undefined,
 					rule,
 					severity: `error`,
 					text: `Expected "cqh" to be "cqb" (${rule})`,
 					url: undefined,
 				},
+			],
+		},
+		{
+			description: `rejects "cqw"`,
+			code: `a { max-width: 100cqw; }`,
+			expectedWarnings: [
 				{
-					line: 6,
-					column: 16,
-					endLine: 6,
-					endColumn: 19,
+					line: 2,
+					column: 19,
+					endLine: 2,
+					endColumn: 22,
 					fix: undefined,
 					rule,
 					severity: `error`,
 					text: `Expected "cqw" to be "cqi" (${rule})`,
 					url: undefined,
 				},
+			],
+		},
+		{
+			description: `rejects "dvh"`,
+			code: `a { min-height: 100dvh; }`,
+			expectedWarnings: [
 				{
-					line: 7,
-					column: 17,
-					endLine: 7,
-					endColumn: 20,
+					line: 2,
+					column: 20,
+					endLine: 2,
+					endColumn: 23,
 					fix: undefined,
 					rule,
 					severity: `error`,
 					text: `Expected "dvh" to be "dvb" (${rule})`,
 					url: undefined,
 				},
+			],
+		},
+		{
+			description: `rejects "vw" in "min()"`,
+			code: `a { width: min(80vw, 100%); }`,
+			expectedWarnings: [
 				{
-					line: 8,
-					column: 15,
-					endLine: 8,
-					endColumn: 17,
+					line: 2,
+					column: 18,
+					endLine: 2,
+					endColumn: 20,
+					fix: undefined,
+					rule,
+					severity: `error`,
+					text: `Expected "vw" to be "vi" (${rule})`,
+					url: undefined,
+				},
+			],
+		},
+		{
+			description: `rejects "vw" values in "clamp()"`,
+			code: `a { width: clamp(20vw, 50%, 80vw); }`,
+			expectedWarnings: [
+				{
+					line: 2,
+					column: 20,
+					endLine: 2,
+					endColumn: 22,
 					fix: undefined,
 					rule,
 					severity: `error`,
@@ -101,21 +152,10 @@ testRule({
 					url: undefined,
 				},
 				{
-					line: 9,
-					column: 17,
-					endLine: 9,
-					endColumn: 19,
-					fix: undefined,
-					rule,
-					severity: `error`,
-					text: `Expected "vw" to be "vi" (${rule})`,
-					url: undefined,
-				},
-				{
-					line: 9,
-					column: 28,
-					endLine: 9,
-					endColumn: 30,
+					line: 2,
+					column: 31,
+					endLine: 2,
+					endColumn: 33,
 					fix: undefined,
 					rule,
 					severity: `error`,

@@ -25,7 +25,7 @@ pnpm exec vitest run --testNamePattern="hex"
 
 Each rule the config enables gets one `<rule-name>.test.ts` under [test/](./test/); plugin rules live in a directory named after the plugin (`test/gamut/`, `test/@stylistic/`) and spell the prefix in `rule` (`` let rule = `@stylistic/indentation` ``). A file is a single call to `testRule()` from [utils/testRule.ts](./utils/testRule.ts), with each CSS sample in its own case:
 
-- `cases` holds every CSS template literal directly, separating valid and invalid examples into independent cases; each case has its own description and optional `expectedWarnings`;
+- `cases` holds every CSS sample as a separate case, with its own description and optional `expectedWarnings`; keep one-line samples on one line and preserve indentation for multi-line samples;
 - `expectedWarnings` is a full snapshot of stylelint's warning objects — `line`/`column`/`endLine`/`endColumn`, `text`, `severity`, and the literal `url: undefined, fix: undefined`. Because the assertion is `toStrictEqual`, every field must be present and exact, and line/column numbers shift whenever a case's `code` is edited.
 
 The helper uses `stripIndent` from `@morev/stylelint-testing-library` to normalize each case's CSS while preserving its boundary newlines, then builds the config for the run out of the shipped one — its `languageOptions`, its `plugins`, and the options it gives that one rule. It throws if `rule` is not a key of `config.rules`, and checks `parseErrors` and `invalidOptionWarnings` before the warnings.

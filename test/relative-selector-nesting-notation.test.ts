@@ -7,30 +7,34 @@ testRule({
 	rule,
 	cases: [
 		{
-			description: `accepts implicit nesting notation`,
+			description: `accepts a type selector using implicit nesting notation`,
 			code: `
-				.valid-1 {
+				a {
 				  a {}
 				}
-
-				.valid-2 {
+			`,
+		},
+		{
+			description: `accepts a child combinator using implicit nesting notation`,
+			code: `
+				a {
 				  > a {}
 				}
-
-				.valid-3 {
+			`,
+		},
+		{
+			description: `accepts a pseudo-class on the parent selector`,
+			code: `
+				a {
 				  &:hover {}
 				}
 			`,
 		},
 		{
-			description: `rejects explicit relative selectors`,
+			description: `rejects an explicit nesting selector before a type selector`,
 			code: `
-				.invalid-1 {
+				a {
 				  & a {}
-				}
-
-				.invalid-2 {
-				  & > a {}
 				}
 			`,
 			expectedWarnings: [
@@ -45,10 +49,20 @@ testRule({
 					text: `Expected implicit nesting notation (${rule})`,
 					url: undefined,
 				},
+			],
+		},
+		{
+			description: `rejects an explicit nesting selector before a child combinator`,
+			code: `
+				a {
+				  & > a {}
+				}
+			`,
+			expectedWarnings: [
 				{
-					line: 7,
+					line: 3,
 					column: 3,
-					endLine: 7,
+					endLine: 3,
 					endColumn: 8,
 					fix: undefined,
 					rule,

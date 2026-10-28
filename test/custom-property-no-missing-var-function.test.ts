@@ -7,26 +7,31 @@ testRule({
 	rule,
 	cases: [
 		{
-			description: `accepts custom properties in var() and permitted contexts`,
+			description: `accepts custom properties in var()`,
 			code: `
 				:root { --valid-1: red }
 				a { color: var(--valid-1) }
-
+			`,
+		},
+		{
+			description: `accepts a registered custom property as a value`,
+			code: `
 				@property --valid-2 {}
 				a { color: var(--valid-2) }
-
+			`,
+		},
+		{
+			description: `accepts a registered custom property as a transition property`,
+			code: `
 				@property --valid-3 {}
 				a { transition-property: --valid-3 }
 			`,
 		},
 		{
-			description: `rejects custom properties used without var()`,
+			description: `rejects an unregistered custom property used without var()`,
 			code: `
 				:root { --invalid-1: red }
 				a { color: --invalid-1 }
-
-				@property --invalid-2 {}
-				a { color: --invalid-2 }
 			`,
 			expectedWarnings: [
 				{
@@ -40,10 +45,19 @@ testRule({
 					severity: `error`,
 					text: `Missing var function for "--invalid-1" (${rule})`,
 				},
+			],
+		},
+		{
+			description: `rejects a registered custom property used without var()`,
+			code: `
+				@property --invalid-2 {}
+				a { color: --invalid-2 }
+			`,
+			expectedWarnings: [
 				{
-					line: 6,
+					line: 3,
 					column: 12,
-					endLine: 6,
+					endLine: 3,
 					endColumn: 23,
 					rule,
 					url: undefined,

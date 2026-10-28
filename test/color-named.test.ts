@@ -7,19 +7,20 @@ testRule({
 	rule,
 	cases: [
 		{
-			description: `accepts non-named colors`,
-			code: `
-				a { color: #000 }
-				a { color: rgb(0 0 0) }
-				a { color: var(--white) }
-			`,
+			description: `accepts hex colors`,
+			code: `a { color: #000 }`,
 		},
 		{
-			description: `rejects named colors`,
-			code: `
-				a { color: black }
-				a { color: white }
-			`,
+			description: `accepts rgb() colors`,
+			code: `a { color: rgb(0 0 0) }`,
+		},
+		{
+			description: `accepts custom-property colors`,
+			code: `a { color: var(--white) }`,
+		},
+		{
+			description: `rejects black`,
+			code: `a { color: black }`,
 			expectedWarnings: [
 				{
 					line: 2,
@@ -32,10 +33,16 @@ testRule({
 					severity: `error`,
 					text: `Disallowed named color "black" (${rule})`,
 				},
+			],
+		},
+		{
+			description: `rejects white`,
+			code: `a { color: white }`,
+			expectedWarnings: [
 				{
-					line: 3,
+					line: 2,
 					column: 12,
-					endLine: 3,
+					endLine: 2,
 					endColumn: 17,
 					rule,
 					url: undefined,
