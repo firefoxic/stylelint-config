@@ -33,8 +33,10 @@ export function testRule (test: RuleTest): void {
 	describe(rule, () => {
 		for (let { description: caseDescription, code, expectedWarnings = [] } of cases) {
 			it(`${description}: ${caseDescription}`, async () => {
+				let normalizedCode = stripIndent(code)
+
 				let [result] = await stylelint.lint({
-					code: `\n${stripIndent(code)}\n`,
+					code: normalizedCode.startsWith(`@charset `) ? `${normalizedCode}\n` : `\n${normalizedCode}\n`,
 					config: {
 						languageOptions: config.languageOptions,
 						plugins: config.plugins,
