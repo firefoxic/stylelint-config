@@ -2,42 +2,47 @@ import { testRule } from "../utils/testRule.ts"
 
 let rule = `declaration-block-no-duplicate-properties`
 
-let code = `
-/* Valid */
-a { color: pink; }
-a { color: pink; background: orange; }
-
-/* Invalid */
-a { color: pink; color: orange; }
-a { color: pink; background: orange; color: orange }
-`
-
 testRule({
 	description: `Declaration blocks must not contain duplicate properties`,
 	rule,
-	code,
-	expectedWarnings: [
+	cases: [
 		{
-			line: 7,
-			column: 5,
-			endLine: 7,
-			endColumn: 10,
-			rule,
-			url: undefined,
-			fix: undefined,
-			severity: `error`,
-			text: `Duplicate property "color" (${rule})`,
+			description: `accepts unique declaration properties`,
+			code: `
+				a { color: pink; }
+				a { color: pink; background: orange; }
+			`,
 		},
 		{
-			line: 8,
-			column: 5,
-			endLine: 8,
-			endColumn: 10,
-			rule,
-			url: undefined,
-			fix: undefined,
-			severity: `error`,
-			text: `Duplicate property "color" (${rule})`,
+			description: `rejects duplicate declaration properties`,
+			code: `
+				a { color: pink; color: orange; }
+				a { color: pink; background: orange; color: orange }
+			`,
+			expectedWarnings: [
+				{
+					line: 2,
+					column: 5,
+					endLine: 2,
+					endColumn: 10,
+					rule,
+					url: undefined,
+					fix: undefined,
+					severity: `error`,
+					text: `Duplicate property "color" (${rule})`,
+				},
+				{
+					line: 3,
+					column: 5,
+					endLine: 3,
+					endColumn: 10,
+					rule,
+					url: undefined,
+					fix: undefined,
+					severity: `error`,
+					text: `Duplicate property "color" (${rule})`,
+				},
+			],
 		},
 	],
 })
