@@ -1,30 +1,19 @@
 import type { Config } from "stylelint"
 
 export default {
-	"languageOptions": {
+	languageOptions: {
 		directionality: {
 			block: `top-to-bottom`,
 			inline: `left-to-right`,
 		},
 	},
-	"extends": [`@stylistic/stylelint-plugin/recommended`],
-	"plugins": [`stylelint-gamut`],
-	"rules": {
+	plugins: [`stylelint-gamut`],
+	rules: {
 		"alpha-value-notation": `number`,
 		"annotation-no-unknown": true,
 		"at-charset-rule-no-invalid": true,
 		"at-rule-descriptor-no-unknown": true,
 		"at-rule-descriptor-value-no-unknown": true,
-		"at-rule-empty-line-before": [
-			`always`,
-			{
-				except: [
-					`blockless-after-same-name-blockless`,
-					`first-nested`,
-				],
-				ignore: [`after-comment`],
-			},
-		],
 		"at-rule-no-deprecated": true,
 		"at-rule-no-unknown": true,
 		"at-rule-no-vendor-prefix": true,
@@ -35,13 +24,6 @@ export default {
 		"color-function-notation": `modern`,
 		"color-named": `never`,
 		"color-no-hex": true,
-		"comment-empty-line-before": [
-			`always`,
-			{
-				except: [`first-nested`],
-				ignore: [`stylelint-commands`],
-			},
-		],
 		"comment-no-empty": true,
 		"comment-whitespace-inside": `always`,
 		"container-name-pattern": [
@@ -56,13 +38,6 @@ export default {
 				message: (name: string): string => `Expected custom media query name "${name}" to be kebab-case`,
 			},
 		],
-		"custom-property-empty-line-before": [
-			`always`,
-			{
-				except: [`after-custom-property`, `first-nested`],
-				ignore: [`after-comment`, `inside-single-line-block`],
-			},
-		],
 		"custom-property-pattern": [
 			`^([a-z][a-z0-9]*)(-[a-z0-9]+)*$`,
 			{
@@ -74,13 +49,6 @@ export default {
 		"declaration-block-no-duplicate-properties": true,
 		"declaration-block-no-redundant-longhand-properties": true,
 		"declaration-block-no-shorthand-property-overrides": true,
-		"declaration-empty-line-before": [
-			`always`,
-			{
-				except: [`after-declaration`, `first-nested`],
-				ignore: [`after-comment`, `inside-single-line-block`],
-			},
-		],
 		"declaration-no-important": true,
 		"declaration-property-unit-allowed-list": {
 			"line-height": [],
@@ -164,13 +132,6 @@ export default {
 		],
 		"property-no-vendor-prefix": true,
 		"relative-selector-nesting-notation": `implicit`,
-		"rule-empty-line-before": [
-			`always`,
-			{
-				except: [`first-nested`],
-				ignore: [`after-comment`],
-			},
-		],
 		"selector-class-pattern": [
 			`^[a-z][a-z0-9]*(?:-[a-z0-9]+)*(?:__[a-z][a-z0-9]*(?:-[a-z0-9]+)*)?(?:--[a-z][a-z0-9]*(?:-[a-z0-9]+)*(?:_[a-z][a-z0-9]*(?:-[a-z0-9]+)*)?)?$`,
 			{

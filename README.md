@@ -6,8 +6,6 @@
 
 Shared config for stylelint by [firefoxic](https://firefoxic.dev).
 
-To see the rules that this config uses, please read the [config itself](./stylelint.config.ts).
-
 ## Installation
 
 ```shell
@@ -27,6 +25,8 @@ export default {
 	}
 }
 ```
+
+The package also exports the rule sets separately as `@firefoxic/stylelint-config/syntactic` and `@firefoxic/stylelint-config/stylistic`. The stylistic set includes the `@stylistic/stylelint-plugin/recommended` preset and Stylelint's five `*-empty-line-before` rules.
 
 [license-url]: https://github.com/firefoxic/stylelint-config/blob/main/LICENSE.md
 [license-image]: https://img.shields.io/badge/License-MIT-limegreen.svg

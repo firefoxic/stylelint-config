@@ -22,6 +22,14 @@
 			"types": "./dist/stylelint.config.d.ts",
 			"default": "./dist/stylelint.config.js"
 		},
+		"./syntactic": {
+			"types": "./dist/syntactic.d.ts",
+			"default": "./dist/syntactic.js"
+		},
+		"./stylistic": {
+			"types": "./dist/stylistic.d.ts",
+			"default": "./dist/stylistic.js"
+		},
 		"./package.json": "./package.json"
 	},
 	"files": [

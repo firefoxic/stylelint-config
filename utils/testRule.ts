@@ -2,7 +2,7 @@ import { stripIndent } from "@morev/stylelint-testing-library"
 import stylelint from "stylelint"
 import { describe, expect, it } from "vitest"
 
-import config from "../stylelint.config.ts"
+import config from "../src/stylelint.config.ts"
 
 type RuleTestCase = {
 	description: string,
@@ -21,14 +21,14 @@ function isRuleName (rule: string): rule is keyof typeof config.rules {
 }
 
 /**
- * Test the specified rule with its configuration from `stylelint.config.ts`.
+ * Test the specified rule with its configuration from `src/stylelint.config.ts`.
  *
  * @param test - Test run parameters.
  */
 export function testRule (test: RuleTest): void {
 	let { description, rule, cases } = test
 
-	if (!isRuleName(rule)) throw new Error(`"${rule}" is not configured in stylelint.config.ts`)
+	if (!isRuleName(rule)) throw new Error(`"${rule}" is not configured in src/stylelint.config.ts`)
 
 	describe(rule, () => {
 		for (let { description: caseDescription, code, expectedWarnings = [] } of cases) {
