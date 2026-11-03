@@ -7,26 +7,20 @@ testRule({
 	rule,
 	cases: [
 		{
-			description: `accepts non-empty comments`,
+			description: `accepts a single-line comment`,
+			code: `/* comment */`,
+		},
+		{
+			description: `accepts a multi-line comment`,
 			code: `
-				/* comment */
-
 				/*
 				 * Multi-line Comment
 				**/
 			`,
 		},
 		{
-			description: `rejects empty comments`,
-			code: `
-				/**/
-
-				/* */
-
-				/*
-
-				 */
-			`,
+			description: `rejects an empty comment`,
+			code: `/**/`,
 			expectedWarnings: [
 				{
 					line: 2,
@@ -39,10 +33,16 @@ testRule({
 					severity: `error`,
 					text: `Empty comment (${rule})`,
 				},
+			],
+		},
+		{
+			description: `rejects a whitespace-only comment`,
+			code: `/* */`,
+			expectedWarnings: [
 				{
-					line: 4,
+					line: 2,
 					column: 1,
-					endLine: 4,
+					endLine: 2,
 					endColumn: 6,
 					rule,
 					url: undefined,
@@ -50,10 +50,20 @@ testRule({
 					severity: `error`,
 					text: `Empty comment (${rule})`,
 				},
+			],
+		},
+		{
+			description: `rejects a multi-line empty comment`,
+			code: `
+				/*
+
+				 */
+			`,
+			expectedWarnings: [
 				{
-					line: 6,
+					line: 2,
 					column: 1,
-					endLine: 8,
+					endLine: 4,
 					endColumn: 4,
 					rule,
 					url: undefined,

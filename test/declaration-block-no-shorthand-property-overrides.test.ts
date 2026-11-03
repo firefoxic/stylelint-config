@@ -7,35 +7,27 @@ testRule({
 	rule,
 	cases: [
 		{
-			description: `accepts declarations in either order when no override occurs`,
-			code: `
-				.valid-1 { padding: 10px; padding-left: 20px }
-				.valid-2 { transition-property: opacity }
-				.valid-2 { transition: opacity 1s linear }
-				.valid-3 { transition-property: opacity; -webkit-transition: opacity 1s linear }
-			`,
+			description: `accepts a longhand declared after its shorthand`,
+			code: `a { padding: 10px; padding-left: 20px }`,
 		},
 		{
-			description: `rejects shorthand properties that override longhands`,
+			description: `accepts a standalone transition-property`,
+			code: `a { transition-property: opacity }`,
+		},
+		{
+			description: `accepts a standalone transition shorthand`,
+			code: `a { transition: opacity 1s linear }`,
+		},
+		{
+			description: `accepts a vendor-prefixed shorthand after its longhand`,
+			code: `a { transition-property: opacity; -webkit-transition: opacity 1s linear }`,
+		},
+		{
+			description: `rejects padding overriding padding-left`,
 			code: `
-				.invalid-1 {
+				a-1 {
 					padding-left: 10px;
 					padding: 20px;
-				}
-
-				.invalid-2 {
-					transition-property: opacity;
-					transition: opacity 1s linear;
-				}
-
-				.invalid-3 {
-					-webkit-transition-property: opacity;
-					-webkit-transition: opacity 1s linear;
-				}
-
-				.invalid-4 {
-					border-top-width: 1px;
-					border: 2px solid blue;
 				}
 			`,
 			expectedWarnings: [
@@ -50,10 +42,21 @@ testRule({
 					severity: `error`,
 					text: `Overridden property "padding-left" by shorthand "padding" (${rule})`,
 				},
+			],
+		},
+		{
+			description: `rejects transition overriding transition-property`,
+			code: `
+				a {
+					transition-property: opacity;
+					transition: opacity 1s linear;
+				}
+			`,
+			expectedWarnings: [
 				{
-					line: 9,
+					line: 4,
 					column: 2,
-					endLine: 9,
+					endLine: 4,
 					endColumn: 12,
 					rule,
 					url: undefined,
@@ -61,10 +64,21 @@ testRule({
 					severity: `error`,
 					text: `Overridden property "transition-property" by shorthand "transition" (${rule})`,
 				},
+			],
+		},
+		{
+			description: `rejects a vendor-prefixed transition overriding its longhand`,
+			code: `
+				a {
+					-webkit-transition-property: opacity;
+					-webkit-transition: opacity 1s linear;
+				}
+			`,
+			expectedWarnings: [
 				{
-					line: 14,
+					line: 4,
 					column: 2,
-					endLine: 14,
+					endLine: 4,
 					endColumn: 20,
 					rule,
 					url: undefined,
@@ -72,10 +86,21 @@ testRule({
 					severity: `error`,
 					text: `Overridden property "-webkit-transition-property" by shorthand "-webkit-transition" (${rule})`,
 				},
+			],
+		},
+		{
+			description: `rejects border overriding border-top-width`,
+			code: `
+				a {
+					border-top-width: 1px;
+					border: 2px solid blue;
+				}
+			`,
+			expectedWarnings: [
 				{
-					line: 19,
+					line: 4,
 					column: 2,
-					endLine: 19,
+					endLine: 4,
 					endColumn: 8,
 					rule,
 					url: undefined,

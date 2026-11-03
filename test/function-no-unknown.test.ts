@@ -7,11 +7,12 @@ testRule({
 	rule,
 	cases: [
 		{
-			description: `accepts known and custom functions`,
-			code: `
-				a { transform: scale(1) }
-				a { transform: --custom-function(1) }
-			`,
+			description: `accepts known functions`,
+			code: `a { transform: scale(1) }`,
+		},
+		{
+			description: `accepts custom functions`,
+			code: `a { transform: --custom-function(1) }`,
 		},
 		{
 			description: `rejects unknown functions`,

@@ -7,18 +7,16 @@ testRule({
 	rule,
 	cases: [
 		{
-			description: `accepts color functions with or without alpha`,
-			code: `
-				a { color: rgb(0 0 0) }
-				a { color: hsl(270 60% 50% / 15%) }
-			`,
+			description: `accepts rgb()`,
+			code: `a { color: rgb(0 0 0) }`,
 		},
 		{
-			description: `rejects alpha aliases`,
-			code: `
-				a { color: rgba(0 0 0) }
-				a { color: hsla(270 60% 50% / 15%) }
-			`,
+			description: `accepts hsl() with alpha`,
+			code: `a { color: hsl(270 60% 50% / 15%) }`,
+		},
+		{
+			description: `rejects rgba()`,
+			code: `a { color: rgba(0 0 0) }`,
 			expectedWarnings: [
 				{
 					line: 2,
@@ -31,10 +29,16 @@ testRule({
 					severity: `error`,
 					text: `Expected "rgba" to be "rgb" (${rule})`,
 				},
+			],
+		},
+		{
+			description: `rejects hsla()`,
+			code: `a { color: hsla(270 60% 50% / 15%) }`,
+			expectedWarnings: [
 				{
-					line: 3,
+					line: 2,
 					column: 12,
-					endLine: 3,
+					endLine: 2,
 					endColumn: 16,
 					rule,
 					url: undefined,

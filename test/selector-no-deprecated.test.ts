@@ -7,19 +7,16 @@ testRule({
 	rule,
 	cases: [
 		{
-			description: `accepts current selectors`,
-			code: `
-				abbr {}
-				a:focus-visible {}
-			`,
+			description: `accepts the "abbr" element`,
+			code: `abbr {}`,
 		},
 		{
-			description: `rejects deprecated selectors`,
-			code: `
-				acronym {}
-				a:focus-ring {}
-				.foo::shadow a {}
-			`,
+			description: `accepts the ":focus-visible" pseudo-class`,
+			code: `a:focus-visible {}`,
+		},
+		{
+			description: `rejects the "acronym" element`,
+			code: `acronym {}`,
 			expectedWarnings: [
 				{
 					line: 2,
@@ -32,10 +29,16 @@ testRule({
 					text: `Deprecated selector "acronym" (${rule})`,
 					url: undefined,
 				},
+			],
+		},
+		{
+			description: `rejects the ":focus-ring" pseudo-class`,
+			code: `a:focus-ring {}`,
+			expectedWarnings: [
 				{
-					line: 3,
+					line: 2,
 					column: 2,
-					endLine: 3,
+					endLine: 2,
 					endColumn: 13,
 					fix: undefined,
 					rule,
@@ -43,10 +46,16 @@ testRule({
 					text: `Expected ":focus-ring" to be ":focus-visible" (${rule})`,
 					url: undefined,
 				},
+			],
+		},
+		{
+			description: `rejects the "::shadow" pseudo-element`,
+			code: `.foo::shadow a {}`,
+			expectedWarnings: [
 				{
-					line: 4,
+					line: 2,
 					column: 5,
-					endLine: 4,
+					endLine: 2,
 					endColumn: 13,
 					fix: undefined,
 					rule,

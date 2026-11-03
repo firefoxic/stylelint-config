@@ -7,15 +7,29 @@ testRule({
 	rule,
 	cases: [
 		{
-			description: `accepts correctly spaced math operators`,
+			description: `accepts a spaced addition operator`,
+			code: `a { top: calc(1px + 2px) }`,
+		},
+		{
+			description: `accepts nested spaced multiplication and division`,
+			code: `a { top: calc(calc(1em * 2) / 3) }`,
+		},
+		{
+			description: `accepts unspaced multiplication and division`,
+			code: `a { top: calc(calc(1em*2)/3) }`,
+		},
+		{
+			description: `accepts a multiline expression with the operator at the end`,
 			code: `
-				a { top: calc(1px + 2px) }
-				a { top: calc(calc(1em * 2) / 3) }
-				a { top: calc(calc(1em*2)/3) }
 				a {
 				  top: calc(var(--foo) +
 				    var(--bar))
 				}
+			`,
+		},
+		{
+			description: `accepts a multiline expression with the operator at the start`,
+			code: `
 				a {
 				  top: calc(var(--foo)
 				    + var(--bar))
@@ -23,12 +37,8 @@ testRule({
 			`,
 		},
 		{
-			description: `rejects unspaced math operators`,
-			code: `
-				a { top: calc(1px+2px) }
-				a { top: calc(1px+ 2px) }
-				a { transform: rotate(atan(-2+1)) }
-			`,
+			description: `rejects an addition operator without spaces`,
+			code: `a { top: calc(1px+2px) }`,
 			expectedWarnings: [
 				{
 					line: 2,
@@ -52,10 +62,16 @@ testRule({
 					text: `Expected single space before "+" operator (${rule})`,
 					url: undefined,
 				},
+			],
+		},
+		{
+			description: `rejects an addition operator without a preceding space`,
+			code: `a { top: calc(1px+ 2px) }`,
+			expectedWarnings: [
 				{
-					line: 3,
+					line: 2,
 					column: 18,
-					endLine: 3,
+					endLine: 2,
 					endColumn: 19,
 					fix: undefined,
 					rule,
@@ -63,10 +79,16 @@ testRule({
 					text: `Expected single space before "+" operator (${rule})`,
 					url: undefined,
 				},
+			],
+		},
+		{
+			description: `rejects an addition operator in "atan()" without spaces`,
+			code: `a { transform: rotate(atan(-2+1)) }`,
+			expectedWarnings: [
 				{
-					line: 4,
+					line: 2,
 					column: 30,
-					endLine: 4,
+					endLine: 2,
 					endColumn: 31,
 					fix: undefined,
 					rule,
@@ -75,9 +97,9 @@ testRule({
 					url: undefined,
 				},
 				{
-					line: 4,
+					line: 2,
 					column: 30,
-					endLine: 4,
+					endLine: 2,
 					endColumn: 31,
 					fix: undefined,
 					rule,

@@ -9,7 +9,7 @@ testRule({
 		{
 			description: `accepts lowercase keywords`,
 			code: `
-				.valid {
+				a {
 					color: currentcolor;
 				}
 			`,
@@ -17,7 +17,7 @@ testRule({
 		{
 			description: `rejects uppercase keywords`,
 			code: `
-				.invalid {
+				a {
 					color: currentColor;
 				}
 			`,

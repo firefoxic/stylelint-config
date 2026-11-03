@@ -7,201 +7,211 @@ testRule({
 	rule,
 	cases: [
 		{
-			description: `accepts modern display notation`,
-			code: `
-				.valid-1 {
-					display: inline flow;
-				}
-
-				.valid-2 {
-					display: block flow-root;
-				}
-
-				.valid-3 {
-					display: inline flow-root;
-				}
-
-				.valid-4 {
-					display: inline flex;
-				}
-
-				.valid-5 {
-					display: inline grid;
-				}
-
-				.valid-6 {
-					display: block grid;
-				}
-
-				.valid-6 {
-					display: contents;
-				}
-
-				.valid-6 {
-					display: none;
-				}
-
-				.valid-6 {
-					display: initial;
-				}
-
-				.valid-6 {
-					display: unset;
-				}
-
-				.valid-6 {
-					display: revert;
-				}
-			`,
+			description: `accepts "inline flow"`,
+			code: `a { display: inline flow; }`,
 		},
 		{
-			description: `rejects legacy display notation`,
-			code: `
-				.invalid-1 {
-					display: block;
-				}
-
-				.invalid-2 {
-					display: inline;
-				}
-
-				.invalid-3 {
-					display: flex;
-				}
-
-				.invalid-4 {
-					display: grid;
-				}
-
-				.invalid-5 {
-					display: flow-root;
-				}
-
-				.invalid-6 {
-					display: inline-block;
-				}
-
-				.invalid-7 {
-					display: inline-flex;
-				}
-
-				.invalid-8 {
-					display: inline-grid;
-				}
-
-				.invalid-9 {
-					display: list-item;
-				}
-
-				.invalid-10 {
-					display: table;
-				}
-			`,
+			description: `accepts "block flow-root"`,
+			code: `a { display: block flow-root; }`,
+		},
+		{
+			description: `accepts "inline flow-root"`,
+			code: `a { display: inline flow-root; }`,
+		},
+		{
+			description: `accepts "inline flex"`,
+			code: `a { display: inline flex; }`,
+		},
+		{
+			description: `accepts "inline grid"`,
+			code: `a { display: inline grid; }`,
+		},
+		{
+			description: `accepts "block grid"`,
+			code: `a { display: block grid; }`,
+		},
+		{
+			description: `accepts "contents"`,
+			code: `a { display: contents; }`,
+		},
+		{
+			description: `accepts "none"`,
+			code: `a { display: none; }`,
+		},
+		{
+			description: `accepts "initial"`,
+			code: `a { display: initial; }`,
+		},
+		{
+			description: `accepts "unset"`,
+			code: `a { display: unset; }`,
+		},
+		{
+			description: `accepts "revert"`,
+			code: `a { display: revert; }`,
+		},
+		{
+			description: `rejects "block"`,
+			code: `a { display: block; }`,
 			expectedWarnings: [
 				{
-					line: 3,
-					column: 11,
-					endLine: 3,
-					endColumn: 16,
+					line: 2,
+					column: 14,
+					endLine: 2,
+					endColumn: 19,
 					rule,
 					url: undefined,
 					fix: undefined,
 					severity: `error`,
 					text: `Expected "block" to be "block flow" (${rule})`,
 				},
+			],
+		},
+		{
+			description: `rejects "inline"`,
+			code: `a { display: inline; }`,
+			expectedWarnings: [
 				{
-					line: 7,
-					column: 11,
-					endLine: 7,
-					endColumn: 17,
+					line: 2,
+					column: 14,
+					endLine: 2,
+					endColumn: 20,
 					rule,
 					url: undefined,
 					fix: undefined,
 					severity: `error`,
 					text: `Expected "inline" to be "inline flow" (${rule})`,
 				},
+			],
+		},
+		{
+			description: `rejects "flex"`,
+			code: `a { display: flex; }`,
+			expectedWarnings: [
 				{
-					line: 11,
-					column: 11,
-					endLine: 11,
-					endColumn: 15,
+					line: 2,
+					column: 14,
+					endLine: 2,
+					endColumn: 18,
 					rule,
 					url: undefined,
 					fix: undefined,
 					severity: `error`,
 					text: `Expected "flex" to be "block flex" (${rule})`,
 				},
+			],
+		},
+		{
+			description: `rejects "grid"`,
+			code: `a { display: grid; }`,
+			expectedWarnings: [
 				{
-					line: 15,
-					column: 11,
-					endLine: 15,
-					endColumn: 15,
+					line: 2,
+					column: 14,
+					endLine: 2,
+					endColumn: 18,
 					rule,
 					url: undefined,
 					fix: undefined,
 					severity: `error`,
 					text: `Expected "grid" to be "block grid" (${rule})`,
 				},
+			],
+		},
+		{
+			description: `rejects "flow-root"`,
+			code: `a { display: flow-root; }`,
+			expectedWarnings: [
 				{
-					line: 19,
-					column: 11,
-					endLine: 19,
-					endColumn: 20,
+					line: 2,
+					column: 14,
+					endLine: 2,
+					endColumn: 23,
 					rule,
 					url: undefined,
 					fix: undefined,
 					severity: `error`,
 					text: `Expected "flow-root" to be "block flow-root" (${rule})`,
 				},
+			],
+		},
+		{
+			description: `rejects "inline-block"`,
+			code: `a { display: inline-block; }`,
+			expectedWarnings: [
 				{
-					line: 23,
-					column: 11,
-					endLine: 23,
-					endColumn: 23,
+					line: 2,
+					column: 14,
+					endLine: 2,
+					endColumn: 26,
 					rule,
 					url: undefined,
 					fix: undefined,
 					severity: `error`,
 					text: `Expected "inline-block" to be "inline flow-root" (${rule})`,
 				},
+			],
+		},
+		{
+			description: `rejects "inline-flex"`,
+			code: `a { display: inline-flex; }`,
+			expectedWarnings: [
 				{
-					line: 27,
-					column: 11,
-					endLine: 27,
-					endColumn: 22,
+					line: 2,
+					column: 14,
+					endLine: 2,
+					endColumn: 25,
 					rule,
 					url: undefined,
 					fix: undefined,
 					severity: `error`,
 					text: `Expected "inline-flex" to be "inline flex" (${rule})`,
 				},
+			],
+		},
+		{
+			description: `rejects "inline-grid"`,
+			code: `a { display: inline-grid; }`,
+			expectedWarnings: [
 				{
-					line: 31,
-					column: 11,
-					endLine: 31,
-					endColumn: 22,
+					line: 2,
+					column: 14,
+					endLine: 2,
+					endColumn: 25,
 					rule,
 					url: undefined,
 					fix: undefined,
 					severity: `error`,
 					text: `Expected "inline-grid" to be "inline grid" (${rule})`,
 				},
+			],
+		},
+		{
+			description: `rejects "list-item"`,
+			code: `a { display: list-item; }`,
+			expectedWarnings: [
 				{
-					line: 35,
-					column: 11,
-					endLine: 35,
-					endColumn: 20,
+					line: 2,
+					column: 14,
+					endLine: 2,
+					endColumn: 23,
 					rule,
 					url: undefined,
 					fix: undefined,
 					severity: `error`,
 					text: `Expected "list-item" to be "block flow list-item" (${rule})`,
 				},
+			],
+		},
+		{
+			description: `rejects "table"`,
+			code: `a { display: table; }`,
+			expectedWarnings: [
 				{
-					line: 39,
-					column: 11,
-					endLine: 39,
-					endColumn: 16,
+					line: 2,
+					column: 14,
+					endLine: 2,
+					endColumn: 19,
 					rule,
 					url: undefined,
 					fix: undefined,

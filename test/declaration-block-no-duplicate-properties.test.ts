@@ -7,18 +7,16 @@ testRule({
 	rule,
 	cases: [
 		{
-			description: `accepts unique declaration properties`,
-			code: `
-				a { color: pink; }
-				a { color: pink; background: orange; }
-			`,
+			description: `accepts a single declaration`,
+			code: `a { color: pink; }`,
 		},
 		{
-			description: `rejects duplicate declaration properties`,
-			code: `
-				a { color: pink; color: orange; }
-				a { color: pink; background: orange; color: orange }
-			`,
+			description: `accepts distinct declaration properties`,
+			code: `a { color: pink; background: orange; }`,
+		},
+		{
+			description: `rejects adjacent duplicate properties`,
+			code: `a { color: pink; color: orange; }`,
 			expectedWarnings: [
 				{
 					line: 2,
@@ -31,10 +29,16 @@ testRule({
 					severity: `error`,
 					text: `Duplicate property "color" (${rule})`,
 				},
+			],
+		},
+		{
+			description: `rejects non-adjacent duplicate properties`,
+			code: `a { color: pink; background: orange; color: orange }`,
+			expectedWarnings: [
 				{
-					line: 3,
+					line: 2,
 					column: 5,
-					endLine: 3,
+					endLine: 2,
 					endColumn: 10,
 					rule,
 					url: undefined,

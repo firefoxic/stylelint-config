@@ -7,18 +7,25 @@ testRule({
 	rule,
 	cases: [
 		{
-			description: `accepts known properties`,
+			description: `accepts custom properties`,
+			code: `a { --my-property: my-value; }`,
+		},
+		{
+			description: `accepts known standard properties`,
+			code: `a { color: #000000; }`,
+		},
+		{
+			description: `accepts descriptors in "@font-face"`,
 			code: `
-				.valid {
-					--my-property: my-value;
-					color: #000000;
-				}
-
 				@font-face {
 					font-family: my font;
 					src: url("./my-font.woff2") format("woff2");
 				}
-
+			`,
+		},
+		{
+			description: `accepts descriptors in "@font-feature-values"`,
+			code: `
 				@font-feature-values my font {
 					@swash {
 						pretty: 1;
@@ -49,30 +56,31 @@ testRule({
 			`,
 		},
 		{
-			description: `rejects unknown properties`,
-			code: `
-				.invalid {
-					my-property: my-value;
-					colour: #000000;
-				}
-			`,
+			description: `rejects "my-property"`,
+			code: `a { my-property: my-value; }`,
 			expectedWarnings: [
 				{
-					line: 3,
-					column: 2,
-					endLine: 3,
-					endColumn: 13,
+					line: 2,
+					column: 5,
+					endLine: 2,
+					endColumn: 16,
 					rule,
 					url: undefined,
 					fix: undefined,
 					severity: `error`,
 					text: `Unknown property "my-property" (${rule})`,
 				},
+			],
+		},
+		{
+			description: `rejects "colour"`,
+			code: `a { colour: #000000; }`,
+			expectedWarnings: [
 				{
-					line: 4,
-					column: 2,
-					endLine: 4,
-					endColumn: 8,
+					line: 2,
+					column: 5,
+					endLine: 2,
+					endColumn: 11,
 					rule,
 					url: undefined,
 					fix: undefined,

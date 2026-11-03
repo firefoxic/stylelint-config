@@ -7,39 +7,55 @@ testRule({
 	rule,
 	cases: [
 		{
-			description: `accepts generic families and font shorthands`,
-			code: `
-				.valid { font-family: Helvetica, Arial, Verdana, Tahoma, sans-serif }
-				.valid { font: 1em/1.3 Times, serif, Apple Color Emoji }
-				.valid { font: inherit }
-				.valid { font: caption }
-				.valid { font-family: var(--font-family-common) }
-				.valid { font-family: Helvetica, var(--font-family-common) }
-			`,
+			description: `accepts a font family with a generic family keyword`,
+			code: `a { font-family: Helvetica, Arial, Verdana, Tahoma, sans-serif }`,
 		},
 		{
-			description: `rejects font families missing a generic family`,
-			code: `
-				.invalid { font-family: Helvetica, Arial, Verdana, Tahoma }
-				.invalid { font: 1em/1.3 Times }
-			`,
+			description: `accepts a font shorthand with a generic family keyword`,
+			code: `a { font: 1em/1.3 Times, serif, Apple Color Emoji }`,
+		},
+		{
+			description: `accepts an inherited font shorthand`,
+			code: `a { font: inherit }`,
+		},
+		{
+			description: `accepts a system font keyword`,
+			code: `a { font: caption }`,
+		},
+		{
+			description: `accepts a font family provided by a custom property`,
+			code: `a { font-family: var(--font-family-common) }`,
+		},
+		{
+			description: `accepts a font family with a custom property after a named font`,
+			code: `a { font-family: Helvetica, var(--font-family-common) }`,
+		},
+		{
+			description: `rejects a font family without a generic family keyword`,
+			code: `a { font-family: Helvetica, Arial, Verdana, Tahoma }`,
 			expectedWarnings: [
 				{
 					line: 2,
-					column: 52,
+					column: 45,
 					endLine: 2,
-					endColumn: 58,
+					endColumn: 51,
 					rule,
 					url: undefined,
 					fix: undefined,
 					severity: `error`,
 					text: `Missing generic font family (${rule})`,
 				},
+			],
+		},
+		{
+			description: `rejects a font shorthand without a generic family keyword`,
+			code: `a { font: 1em/1.3 Times }`,
+			expectedWarnings: [
 				{
-					line: 3,
-					column: 26,
-					endLine: 3,
-					endColumn: 31,
+					line: 2,
+					column: 19,
+					endLine: 2,
+					endColumn: 24,
 					rule,
 					url: undefined,
 					fix: undefined,

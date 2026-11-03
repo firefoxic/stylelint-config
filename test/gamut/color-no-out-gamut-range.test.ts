@@ -7,27 +7,39 @@ testRule({
 	rule,
 	cases: [
 		{
-			description: `accepts out-of-gamut colors in the proper media query`,
+			description: `accepts an lch() color in a p3 media query`,
 			code: `
-				.valid-1 {
+				a {
 					@media (color-gamut: p3) {
 						color: lch(48% 82 283);
 					}
 				}
-
-				.valid-2 {
+			`,
+		},
+		{
+			description: `accepts an oklch() color in a p3 media query`,
+			code: `
+				a {
 					@media (color-gamut: p3) {
 						color: oklch(57.35% 0.23 259.06);
 					}
 				}
-
-				.valid-3 {
+			`,
+		},
+		{
+			description: `accepts a lab() color in a rec2020 media query`,
+			code: `
+				a {
 					@media (color-gamut: rec2020) {
 						color: lab(82.2345% 40.1645 59.9971 / .5);
 					}
 				}
-
-				.valid-4 {
+			`,
+		},
+		{
+			description: `accepts an oklab() color in a rec2020 media query`,
+			code: `
+				a {
 					@media (color-gamut: rec2020) {
 						color: oklab(85.69% 0.1007 0.1191 / .5);
 					}
@@ -35,22 +47,10 @@ testRule({
 			`,
 		},
 		{
-			description: `rejects unwrapped out-of-gamut colors`,
+			description: `rejects an unwrapped out-of-gamut lch() color`,
 			code: `
-				.invalid-1 {
+				a {
 					color: lch(48% 82 283);
-				}
-
-				.invalid-2 {
-					color: oklch(57.35% 0.23 259.06);
-				}
-
-				.invalid-3 {
-					color: lab(82.2345% 40.1645 59.9971 / .5);
-				}
-
-				.invalid-4 {
-					color: oklab(85.69% 0.1007 0.1191 / .5);
 				}
 			`,
 			expectedWarnings: [
@@ -65,10 +65,20 @@ testRule({
 					severity: `error`,
 					text: `Unexpected color out of gamut range "lch(48% 82 283)" (${rule})`,
 				},
+			],
+		},
+		{
+			description: `rejects an unwrapped out-of-gamut oklch() color`,
+			code: `
+				a {
+					color: oklch(57.35% 0.23 259.06);
+				}
+			`,
+			expectedWarnings: [
 				{
-					line: 7,
+					line: 3,
 					column: 9,
-					endLine: 7,
+					endLine: 3,
 					endColumn: 34,
 					rule,
 					url: undefined,
@@ -76,10 +86,20 @@ testRule({
 					severity: `error`,
 					text: `Unexpected color out of gamut range "oklch(57.35% 0.23 259.06)" (${rule})`,
 				},
+			],
+		},
+		{
+			description: `rejects an unwrapped out-of-gamut lab() color`,
+			code: `
+				a {
+					color: lab(82.2345% 40.1645 59.9971 / .5);
+				}
+			`,
+			expectedWarnings: [
 				{
-					line: 11,
+					line: 3,
 					column: 9,
-					endLine: 11,
+					endLine: 3,
 					endColumn: 43,
 					rule,
 					url: undefined,
@@ -87,10 +107,20 @@ testRule({
 					severity: `error`,
 					text: `Unexpected color out of gamut range "lab(82.2345% 40.1645 59.9971 / .5)" (${rule})`,
 				},
+			],
+		},
+		{
+			description: `rejects an unwrapped out-of-gamut oklab() color`,
+			code: `
+				a {
+					color: oklab(85.69% 0.1007 0.1191 / .5);
+				}
+			`,
+			expectedWarnings: [
 				{
-					line: 15,
+					line: 3,
 					column: 9,
-					endLine: 15,
+					endLine: 3,
 					endColumn: 41,
 					rule,
 					url: undefined,

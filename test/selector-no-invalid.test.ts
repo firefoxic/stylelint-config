@@ -7,22 +7,24 @@ testRule({
 	rule,
 	cases: [
 		{
-			description: `accepts valid selectors`,
-			code: `
-				a b {}
-				:nth-child(2n+1) {}
-				[foo] {}
-				:dir(ltr) {}
-			`,
+			description: `accepts a valid descendant selector`,
+			code: `a b {}`,
 		},
 		{
-			description: `rejects invalid selectors`,
-			code: `
-				a ) b {}
-				:nth-child(2n+) {}
-				[0foo] {}
-				:dir(foo) {}
-			`,
+			description: `accepts a valid :nth-child() selector`,
+			code: `:nth-child(2n+1) {}`,
+		},
+		{
+			description: `accepts a valid attribute selector`,
+			code: `[foo] {}`,
+		},
+		{
+			description: `accepts a valid :dir() selector`,
+			code: `:dir(ltr) {}`,
+		},
+		{
+			description: `rejects an unexpected closing parenthesis`,
+			code: `a ) b {}`,
 			expectedWarnings: [
 				{
 					line: 2,
@@ -35,10 +37,16 @@ testRule({
 					text: `Invalid selector "a ) b", unexpected input (${rule})`,
 					url: undefined,
 				},
+			],
+		},
+		{
+			description: `rejects an invalid :nth-child() formula`,
+			code: `:nth-child(2n+) {}`,
+			expectedWarnings: [
 				{
-					line: 3,
+					line: 2,
 					column: 15,
-					endLine: 3,
+					endLine: 2,
 					endColumn: 16,
 					fix: undefined,
 					rule,
@@ -46,10 +54,16 @@ testRule({
 					text: `Invalid selector ":nth-child(2n+)", integer is expected (${rule})`,
 					url: undefined,
 				},
+			],
+		},
+		{
+			description: `rejects an invalid attribute selector name`,
+			code: `[0foo] {}`,
+			expectedWarnings: [
 				{
-					line: 4,
+					line: 2,
 					column: 2,
-					endLine: 4,
+					endLine: 2,
 					endColumn: 3,
 					fix: undefined,
 					rule,
@@ -57,10 +71,16 @@ testRule({
 					text: `Invalid selector "[0foo]", identifier is expected (${rule})`,
 					url: undefined,
 				},
+			],
+		},
+		{
+			description: `rejects an unsupported :dir() value`,
+			code: `:dir(foo) {}`,
+			expectedWarnings: [
 				{
-					line: 5,
+					line: 2,
 					column: 1,
-					endLine: 5,
+					endLine: 2,
 					endColumn: 10,
 					fix: undefined,
 					rule,
