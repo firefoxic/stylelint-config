@@ -9,7 +9,7 @@
 		"@stylistic/stylelint-plugin/recommended"
 	],
 	"plugins": [
-		"stylelint-gamut"
+		"@firefoxic/stylelint-gamut"
 	],
 	"rules": {
 		"annotation-no-unknown": true,

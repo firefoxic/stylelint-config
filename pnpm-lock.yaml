@@ -166,12 +166,12 @@ importers:
 
   .:
     dependencies:
+      '@firefoxic/stylelint-gamut':
+        specifier: ^1.0.0
+        version: 1.0.0(stylelint@18.0.0)
       '@stylistic/stylelint-plugin':
         specifier: ^6.0.0
         version: 6.0.0(stylelint@18.0.0)
-      stylelint-gamut:
-        specifier: ^2.0.1
-        version: 2.0.1(stylelint@18.0.0)
     devDependencies:
       '@firefoxic/oxlint-config':
         specifier: ~0.5
@@ -282,6 +282,11 @@ packages:
     engines: {node: '>=22.18'}
     peerDependencies:
       oxlint: ^1.83
+
+  '@firefoxic/stylelint-gamut@1.0.0':
+    resolution: {integrity: sha512-/7Vh7kEe3wG5BENdhchh3Lm/WjVdKiaSaqHLOh5Vw3SDhxFUbPtYa6CVyHeHPbideqyHqoOslvDpbXBO6aEnZw==}
+    peerDependencies:
+      stylelint: ^18.0.0
 
   '@humanfs/core@0.19.2':
     resolution: {integrity: sha512-UhXNm+CFMWcbChXywFwkmhqjs3PRCmcSa/hfBgLIb7oQ5HNb1wS0icWsGtSAUNgefHeI+eBrA8I1fxmbHsGdvA==}
@@ -677,8 +682,8 @@ packages:
   colord@2.10.0:
     resolution: {integrity: sha512-AidJptpBJmjTclAp9BkLwJi0T93fo5epJnbaZslpg6QVzpHjAiveF55mE9AcUJiGMqRHgMDY8soMsQtuNYMHfw==}
 
-  colorjs.io@0.6.1:
-    resolution: {integrity: sha512-8lyR2wHzuIykCpqHKgluGsqQi5iDm3/a2IgP2GBZrasn2sBRkE4NOGsglZxWLs/jZQoNkmA/KM/8NV16rLUdBg==}
+  colorjs.io@0.7.1:
+    resolution: {integrity: sha512-LY7OHnJZxHwT5UlzNa9bbhHHDbzB6yE5+3MIPwJEQKRvSCt/T4G7epsj+9j2BExUIIfXFIJGsIXUKdfrK9Q5tA==}
 
   cosmiconfig@10.0.1:
     resolution: {integrity: sha512-/zvGoYn0y27QTBmK+0B+oPdEPC4fKGUmJsMTQbDjqph00TrkqfVFW/M+C6ya54sYCgHC6QCwK/mI6djt8cEGHQ==}
@@ -1214,12 +1219,6 @@ packages:
   style-search@0.1.0:
     resolution: {integrity: sha512-Dj1Okke1C3uKKwQcetra4jSuk0DqbzbYtXipzFlFMZtowbF1x7BKJwB9AayVMyFARvU8EDrZdcax4At/452cAg==}
 
-  stylelint-gamut@2.0.1:
-    resolution: {integrity: sha512-tsNmkvzm4LbeUBOcLIn8A6aDGBanWwcg+3AlBoljlxz0rxxAC3ZHq/sHKso9YLbNlNvCDIMzw8KVtchStOSO8w==}
-    engines: {node: '>=20.19.0'}
-    peerDependencies:
-      stylelint: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
-
   stylelint@18.0.0:
     resolution: {integrity: sha512-kI10GsHXQvsH/AcklVZdQgwDuxtHi+A+h1Ujzd7h9LDf3e5jQiLQkWFlPtpynX3E6oVWHG1wo9v6dL0Mr+nnSA==}
     engines: {node: ^22.22.2 || ^24.15.0 || >=26.0.0}
@@ -1444,6 +1443,11 @@ snapshots:
       oxlint: 1.89.0
     transitivePeerDependencies:
       - eslint
+
+  '@firefoxic/stylelint-gamut@1.0.0(stylelint@18.0.0)':
+    dependencies:
+      colorjs.io: 0.7.1
+      stylelint: 18.0.0
 
   '@humanfs/core@0.19.2':
     dependencies:
@@ -1691,7 +1695,7 @@ snapshots:
 
   colord@2.10.0: {}
 
-  colorjs.io@0.6.1: {}
+  colorjs.io@0.7.1: {}
 
   cosmiconfig@10.0.1:
     dependencies:
@@ -2070,11 +2074,6 @@ snapshots:
 
   style-search@0.1.0: {}
 
-  stylelint-gamut@2.0.1(stylelint@18.0.0):
-    dependencies:
-      colorjs.io: 0.6.1
-      stylelint: 18.0.0
-
   stylelint@18.0.0:
     dependencies:
       '@csstools/css-calc': 3.4.3(@csstools/css-parser-algorithms@4.0.2(@csstools/css-tokenizer@4.0.2))(@csstools/css-tokenizer@4.0.2)
@@ -2135,7 +2134,7 @@ snapshots:
     dependencies:
       lightningcss: 1.33.0
       picomatch: 4.0.7
-      postcss: 8.5.31
+      postcss: 8.5.32
       rolldown: 1.2.15
       tinyglobby: 0.2.17
     optionalDependencies:

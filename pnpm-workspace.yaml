@@ -1,6 +1,7 @@
 gitChecks: false
 
 minimumReleaseAgeExclude:
+  - '@firefoxic/*'
   - '@stylistic/*'
   - stylelint
 

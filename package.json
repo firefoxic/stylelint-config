@@ -32,7 +32,7 @@
 	},
 	"dependencies": {
 		"@stylistic/stylelint-plugin": "^6.0.0",
-		"stylelint-gamut": "^2.0.1"
+		"@firefoxic/stylelint-gamut": "^1.0.0"
 	},
 	"scripts": {
 		"help": "make help",

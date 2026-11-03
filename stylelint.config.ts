@@ -8,7 +8,7 @@ export default {
 		},
 	},
 	"extends": [`@stylistic/stylelint-plugin/recommended`],
-	"plugins": [`stylelint-gamut`],
+	"plugins": [`@firefoxic/stylelint-gamut`],
 	"rules": {
 		"annotation-no-unknown": true,
 		"at-rule-empty-line-before": [
