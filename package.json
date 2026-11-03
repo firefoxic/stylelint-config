@@ -1,7 +1,7 @@
 {
 	"name": "@firefoxic/stylelint-config",
 	"description": "Shared config for stylelint by firefoxic.",
-	"version": "9.0.0",
+	"version": "10.0.0",
 	"license": "MIT",
 	"author": {
 		"name": "Sergey Artemov",
@@ -39,8 +39,8 @@
 		"stylelint": "^18.0.0"
 	},
 	"dependencies": {
-		"@stylistic/stylelint-plugin": "^6.0.0",
-		"@firefoxic/stylelint-gamut": "^1.0.0"
+		"@firefoxic/stylelint-gamut": "^1.0.0",
+		"@stylistic/stylelint-plugin": "^6.0.0"
 	},
 	"scripts": {
 		"help": "make help",
