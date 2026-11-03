@@ -3,8 +3,8 @@ import { testRule } from "../utils/testRule.ts"
 let rule = `import-notation`
 
 let code = `
-@import "valid.scss";
-@import url("invalid.scss");
+@import url("valid.css");
+@import "invalid.css";
 `
 
 testRule({
@@ -16,12 +16,12 @@ testRule({
 			line: 3,
 			column: 9,
 			endLine: 3,
-			endColumn: 28,
+			endColumn: 22,
 			rule,
 			url: undefined,
 			fix: undefined,
 			severity: `error`,
-			text: `Expected "url("invalid.scss")" to be ""invalid.scss"" (${rule})`,
+			text: `Expected ""invalid.css"" to be "url("invalid.css")" (${rule})`,
 		},
 	],
 })

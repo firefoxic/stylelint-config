@@ -10,10 +10,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and 
 ### Changed
 
 - The config now requires `stylelint` version `18.0.0` or higher.
+- Imports must now use `url(...)` notation.
+- The maximum nesting depth and number of compound selectors have both been increased from 2 to 3.
 
 ### Added
 
 - The package now ships a type declaration for its exported config, so TypeScript consumers importing it receive its inferred type instead of `any`.
+- Additional core rules now flag deprecated or invalid CSS, including at-rules, descriptors, media features, nesting, properties, selectors, syntax strings, and values.
+- Naming conventions are now enforced: BEM notation for class selectors; kebab-case for custom properties and custom media queries; and `--kebab-case` for container, keyframe, and layer names.
+- Formatting and consistency rules now cover comment and declaration spacing, redundant longhand and shorthand values, numeric alpha and lightness, angle-based hues, numeric font weights, and scheme-relative URLs. Units are also disallowed for `line-height`.
 
 ## [9.0.0] — 2026–07–02
 
