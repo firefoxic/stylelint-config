@@ -15,6 +15,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and 
 
 ### Added
 
+- The package now exports separate `syntactic` and `stylistic` configs in addition to the combined config. The stylistic config includes Stylelint's five `*-empty-line-before` rules.
 - The package now ships a type declaration for its exported config, so TypeScript consumers importing it receive its inferred type instead of `any`.
 - Additional core rules now flag deprecated or invalid CSS, including at-rules, descriptors, media features, nesting, properties, selectors, syntax strings, and values.
 - Naming conventions are now enforced: BEM notation for class selectors; kebab-case for custom properties and custom media queries; and `--kebab-case` for container, keyframe, and layer names.

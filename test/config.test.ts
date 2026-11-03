@@ -1,7 +1,9 @@
 import stylelint from "stylelint"
 import { describe, expect, it } from "vitest"
 
-import config from "../stylelint.config.ts"
+import config from "../src/stylelint.config.ts"
+import stylistic from "../src/stylistic.ts"
+import syntactic from "../src/syntactic.ts"
 
 /** A stylesheet that touches every opinion the config holds, spelled the way the config wants it. */
 const CANONICAL = `@import url("./reset.css");
@@ -323,6 +325,20 @@ color: red;
 
 	it(`extends the recommended stylistic config`, () => {
 		expect(config.extends).toEqual([`@stylistic/stylelint-plugin/recommended`])
+		expect(stylistic.extends).toEqual([`@stylistic/stylelint-plugin/recommended`])
+	})
+
+	it(`keeps the empty-line-before rules in the stylistic set`, () => {
+		let emptyLineBeforeRules = [
+			`at-rule-empty-line-before`,
+			`comment-empty-line-before`,
+			`custom-property-empty-line-before`,
+			`declaration-empty-line-before`,
+			`rule-empty-line-before`,
+		]
+
+		expect(Object.keys(stylistic.rules ?? {}).toSorted()).toEqual(emptyLineBeforeRules.toSorted())
+		expect(Object.keys(syntactic.rules ?? {}).filter((rule) => rule.endsWith(`-empty-line-before`))).toEqual([])
 	})
 
 	it(`sets the expected language options`, () => {
