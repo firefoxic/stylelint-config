@@ -2,43 +2,48 @@ import { testRule } from "../utils/testRule.ts"
 
 let rule = `color-named`
 
-let code = `
-/* Valid */
-a { color: #000 }
-a { color: rgb(0 0 0) }
-a { color: var(--white) }
-
-/* Invalid */
-a { color: black }
-a { color: white }
-`
-
 testRule({
 	description: `The color must not be named`,
 	rule,
-	code,
-	expectedWarnings: [
+	cases: [
 		{
-			line: 8,
-			column: 12,
-			endLine: 8,
-			endColumn: 17,
-			rule,
-			url: undefined,
-			fix: undefined,
-			severity: `error`,
-			text: `Disallowed named color "black" (${rule})`,
+			description: `accepts non-named colors`,
+			code: `
+				a { color: #000 }
+				a { color: rgb(0 0 0) }
+				a { color: var(--white) }
+			`,
 		},
 		{
-			line: 9,
-			column: 12,
-			endLine: 9,
-			endColumn: 17,
-			rule,
-			url: undefined,
-			fix: undefined,
-			severity: `error`,
-			text: `Disallowed named color "white" (${rule})`,
+			description: `rejects named colors`,
+			code: `
+				a { color: black }
+				a { color: white }
+			`,
+			expectedWarnings: [
+				{
+					line: 2,
+					column: 12,
+					endLine: 2,
+					endColumn: 17,
+					rule,
+					url: undefined,
+					fix: undefined,
+					severity: `error`,
+					text: `Disallowed named color "black" (${rule})`,
+				},
+				{
+					line: 3,
+					column: 12,
+					endLine: 3,
+					endColumn: 17,
+					rule,
+					url: undefined,
+					fix: undefined,
+					severity: `error`,
+					text: `Disallowed named color "white" (${rule})`,
+				},
+			],
 		},
 	],
 })

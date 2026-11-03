@@ -2,31 +2,38 @@ import { testRule } from "../utils/testRule.ts"
 
 let rule = `value-keyword-case`
 
-let code = `
-.valid {
-	color: currentcolor;
-}
-
-.invalid {
-	color: currentColor;
-}
-`
-
 testRule({
 	description: `Keywords must be in lower case`,
 	rule,
-	code,
-	expectedWarnings: [
+	cases: [
 		{
-			line: 7,
-			column: 9,
-			endLine: 7,
-			endColumn: 21,
-			rule,
-			url: undefined,
-			fix: undefined,
-			severity: `error`,
-			text: `Expected "currentColor" to be "currentcolor" (${rule})`,
+			description: `accepts lowercase keywords`,
+			code: `
+				.valid {
+					color: currentcolor;
+				}
+			`,
+		},
+		{
+			description: `rejects uppercase keywords`,
+			code: `
+				.invalid {
+					color: currentColor;
+				}
+			`,
+			expectedWarnings: [
+				{
+					line: 3,
+					column: 9,
+					endLine: 3,
+					endColumn: 21,
+					rule,
+					url: undefined,
+					fix: undefined,
+					severity: `error`,
+					text: `Expected "currentColor" to be "currentcolor" (${rule})`,
+				},
+			],
 		},
 	],
 })

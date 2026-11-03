@@ -2,59 +2,66 @@ import { testRule } from "../utils/testRule.ts"
 
 let rule = `comment-no-empty`
 
-let code = `
-/* comment */
-
-/*
- * Multi-line Comment
-**/
-
-/**/
-
-/* */
-
-/*
-
- */
-`
-
 testRule({
 	description: `The comment must not be empty`,
 	rule,
-	code,
-	expectedWarnings: [
+	cases: [
 		{
-			line: 8,
-			column: 1,
-			endLine: 8,
-			endColumn: 5,
-			rule,
-			url: undefined,
-			fix: undefined,
-			severity: `error`,
-			text: `Empty comment (${rule})`,
+			description: `accepts non-empty comments`,
+			code: `
+				/* comment */
+
+				/*
+				 * Multi-line Comment
+				**/
+			`,
 		},
 		{
-			line: 10,
-			column: 1,
-			endLine: 10,
-			endColumn: 6,
-			rule,
-			url: undefined,
-			fix: undefined,
-			severity: `error`,
-			text: `Empty comment (${rule})`,
-		},
-		{
-			line: 12,
-			column: 1,
-			endLine: 14,
-			endColumn: 4,
-			rule,
-			url: undefined,
-			fix: undefined,
-			severity: `error`,
-			text: `Empty comment (${rule})`,
+			description: `rejects empty comments`,
+			code: `
+				/**/
+
+				/* */
+
+				/*
+
+				 */
+			`,
+			expectedWarnings: [
+				{
+					line: 2,
+					column: 1,
+					endLine: 2,
+					endColumn: 5,
+					rule,
+					url: undefined,
+					fix: undefined,
+					severity: `error`,
+					text: `Empty comment (${rule})`,
+				},
+				{
+					line: 4,
+					column: 1,
+					endLine: 4,
+					endColumn: 6,
+					rule,
+					url: undefined,
+					fix: undefined,
+					severity: `error`,
+					text: `Empty comment (${rule})`,
+				},
+				{
+					line: 6,
+					column: 1,
+					endLine: 8,
+					endColumn: 4,
+					rule,
+					url: undefined,
+					fix: undefined,
+					severity: `error`,
+					text: `Empty comment (${rule})`,
+				},
+			],
 		},
 	],
 })
