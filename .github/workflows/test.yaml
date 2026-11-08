@@ -3,10 +3,10 @@ name: Test
 on:
   push:
     branches:
-    - main
+      - main
   pull_request:
     branches:
-    - '**'
+      - '**'
 
 env:
   FORCE_COLOR: 2
@@ -16,8 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
-      - uses: pnpm/action-setup@v6
+      - uses: pnpm/setup@v3
         with:
           cache: true
-      - run: pnpm ci
       - run: make verify
