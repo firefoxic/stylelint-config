@@ -36,6 +36,10 @@ test-watch: ## 👀 Run tests, and rerun them on every change
 verify: lint test typecheck build ## ✅ Run every check
 .PHONY: verify
 
+release: verify ## 🚀 Release a new version
+	pnx @firefoxic/release-it
+.PHONY: release
+
 ANSI_RESET := \033[0m
 ANSI_BOLD := \033[1m
 ANSI_BOLD_CYAN := \033[1;36m
