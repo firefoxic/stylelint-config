@@ -6,15 +6,4 @@ export default defineConfig({
 	"env": {
 		node: true,
 	},
-	"rules": {
-		"import/exports-last": `off`,
-	},
-	"overrides": [
-		{
-			files: [`test/**/*.{js,ts}`],
-			rules: {
-				"no-undefined": `off`,
-			},
-		},
-	],
 })

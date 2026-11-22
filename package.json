@@ -36,34 +36,34 @@
 		"./dist"
 	],
 	"peerDependencies": {
-		"stylelint": "^18.0.0"
+		"stylelint": "^18.1.0"
 	},
 	"dependencies": {
-		"@firefoxic/stylelint-gamut": "^1.0.0",
-		"@stylistic/stylelint-plugin": "^6.0.0"
+		"@firefoxic/stylelint-gamut": "^1.0.2",
+		"@stylistic/stylelint-plugin": "^6.0.1"
 	},
 	"scripts": {
 		"help": "make help",
 		"prepare": "git config --local core.hooksPath .githooks || true"
 	},
 	"devDependencies": {
-		"@firefoxic/oxlint-config": "~0.5",
+		"@firefoxic/oxlint-config": "~0.7",
 		"@morev/stylelint-testing-library": "^1",
 		"@types/node": "^26",
 		"oxlint": "^1",
 		"stylelint": "^18",
-		"tsrs": "^0.20.1-ts7",
+		"tsrs": "latest",
 		"vitest": "^5"
 	},
 	"devEngines": {
 		"runtime": {
 			"name": "node",
-			"version": "^26.13",
+			"version": ">=26.13",
 			"onFail": "download"
 		},
 		"packageManager": {
 			"name": "pnpm",
-			"version": "^12.17",
+			"version": ">=12.22",
 			"onFail": "download"
 		}
 	},
